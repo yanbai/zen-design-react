@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../Icon'
-import './index.css'
+import './index.scss'
 
 class Collapse extends React.Component {
   constructor(props) {
