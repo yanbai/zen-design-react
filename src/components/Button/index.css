@@ -1,0 +1,54 @@
+.zen-button {
+  line-height: 1.499;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  background-image: none;
+  box-shadow: 0 2px 0 rgba(0,0,0,.015);
+  cursor: pointer;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  user-select: none;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 0 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  color: rgba(0,0,0,.65);
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  outline: none;
+}
+
+.zen-button--primary {
+  height: 40px;
+  line-height: 40px;
+  background-color: rgb(127, 0, 25);
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  box-shadow: rgba(88, 88, 88, 0.3) 0px 1px 3px;
+  border: 1px solid rgb(127, 0, 25);
+  border-radius: 25px;
+}
+
+.zen-button--ghost {
+  height: 40px;
+  line-height: 40px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(88, 88, 88);
+  font-size: 12px;
+  box-shadow: rgba(88, 88, 88, 0.3) 0px 1px 3px;
+  border: 1px solid rgb(88, 88, 88);
+  border-radius: 25px;
+}
+
+.zen-button.disabled, .zen-button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.zen-button--block {
+  display: block;
+  width: 100%;
+}
