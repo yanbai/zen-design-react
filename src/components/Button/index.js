@@ -16,10 +16,12 @@ class Button extends React.Component {
     // const otherClasses = {
 
     // }
+    const typeClass = this.props.type ? `zen-button--${this.props.type}` : ''
     const disabledClass = this.props.disabled ? 'zen-button--disabled' : ''
     const ghostClass = this.props.ghost ? 'zen-button--ghost' : ''
     const blockClass = this.props.block ? 'zen-button--block' : ''
-    const className = `zen-button zen-button--primary ${disabledClass} ${ghostClass} ${blockClass}`
+
+    const className = `zen-button ${typeClass} ${disabledClass} ${ghostClass} ${blockClass}`
 
     const icon = this.props.icon ? <Icon name={this.props.icon} /> : null
     return (

@@ -1,3 +1,5 @@
+@import 'assets/style/variables';
+
 .zen-button {
   line-height: 1.499;
   position: relative;
@@ -6,7 +8,7 @@
   white-space: nowrap;
   text-align: center;
   background-image: none;
-  box-shadow: 0 2px 0 rgba(0,0,0,.015);
+  box-shadow: 0 2px 0 $button-box-shadow-color;
   cursor: pointer;
   transition: all .3s cubic-bezier(.645,.045,.355,1);
   user-select: none;
@@ -16,39 +18,49 @@
   font-size: 14px;
   border-radius: 4px;
   color: rgba(0,0,0,.65);
-  background-color: #fff;
-  border: 1px solid #d9d9d9;
+  border: 1px solid $button-border-color;
+  background-color: $button-backgound-color;
   outline: none;
-}
 
-.zen-button--primary {
-  height: 40px;
-  line-height: 40px;
-  background-color: rgb(127, 0, 25);
-  color: rgb(255, 255, 255);
-  font-size: 12px;
-  box-shadow: rgba(88, 88, 88, 0.3) 0px 1px 3px;
-  border: 1px solid rgb(127, 0, 25);
-  border-radius: 25px;
-}
+  &--primary {
+    height: 40px;
+    line-height: 40px;
+    background-color: $button-primary-backgound-color;
+    color: $button-primary-text-color;
+    font-size: 12px;
+    box-shadow: $button-primary-box-shadow-color 0px 1px 3px;
+    border: 1px solid $button-primary-backgound-color;
+    border-radius: 25px;
+    &.zen-button--ghost {
+      background-color: $button-primary-ghost-backgound-color;
+      color: $button-primary-ghost-text-color;
+      border: 1px solid $button-primary-ghost-border-color;
+    }
+  }
 
-.zen-button--ghost {
-  height: 40px;
-  line-height: 40px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(88, 88, 88);
-  font-size: 12px;
-  box-shadow: rgba(88, 88, 88, 0.3) 0px 1px 3px;
-  border: 1px solid rgb(88, 88, 88);
-  border-radius: 25px;
-}
+  &--secondary {
+    height: 40px;
+    line-height: 40px;
+    background-color: $button-secondary-backgound-color;
+    color: $button-secondary-text-color;
+    font-size: 12px;
+    box-shadow: $button-secondary-box-shadow-color 0px 1px 3px;
+    border: 1px solid $button-secondary-border-color;
+    border-radius: 25px;
+    &.zen-button--ghost {
+      background-color: $button-secondary-ghost-backgound-color;
+      color: $button-secondary-ghost-text-color;
+      border: 1px solid $button-secondary-ghost-border-color;
+    }
+  }
 
-.zen-button.disabled, .zen-button[disabled] {
-  cursor: not-allowed;
-  opacity: 0.6;
-}
+  &.disabled, &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 
-.zen-button--block {
-  display: block;
-  width: 100%;
+  &--block {
+    display: block;
+    width: 100%;
+  }
 }

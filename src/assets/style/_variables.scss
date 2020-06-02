@@ -1,0 +1,56 @@
+/**
+  * Basic color variable
+  * Never use basic color variable in component directly
+  */
+$white: #ffffff;
+$black: #000000;
+$color-00b84b: #00b84b; //green-1
+$color-227fed: #227fed; //blue-1
+$color-f5b068: #f5b068; //orange-1
+$red-1: #7f0019;
+$color-ffffff: #ffffff; //white-1
+$color-000000: #000000; //black-1
+$gray-1: rgba(0,0,0,.015); //shadow
+$gray-2: rgba(88, 88, 88, 0.3); //shadow
+$gray-3: #d9d9d9; //button border
+$gray-4: rgb(88, 88, 88); //secondary button color and border color
+
+// button
+$button-backgound-color: $white;
+$button-border-color: $gray-3;
+$button-box-shadow-color: $gray-1;
+
+// button-primary
+$button-primary-backgound-color: $red-1;
+$button-primary-background-color-hover: $red-1;
+$button-primary-text-color: $white;
+$button-primary-border-color: $red-1;
+$button-primary-box-shadow-color: $gray-2;
+
+// button-primary--ghost
+$button-primary-ghost-backgound-color: $white;
+$button-primary-ghost-background-color-hover: $white;
+$button-primary-ghost-text-color: $red-1;
+$button-primary-ghost-border-color: $red-1;
+$button-primary-ghost-box-shadow-color: $gray-2;
+
+// button-secondary
+$button-secondary-backgound-color: $gray-4;
+$button-secondary-background-color-hover: $gray-4;
+$button-secondary-text-color: $white;
+$button-secondary-border-color: $gray-4;
+$button-secondary-box-shadow-color: $gray-2;
+
+// button-secondary--ghost
+$button-secondary-ghost-backgound-color: $white;
+$button-secondary-ghost-background-color-hover: $white;
+$button-secondary-ghost-text-color: $gray-4;
+$button-secondary-ghost-border-color: $gray-4;
+$button-secondary-ghost-box-shadow-color: $gray-2;
+
+// button-secondary--ghost
+$button-secondary-ghost-backgound-color: $white;
+$button-secondary-ghost-background-color-hover: $white;
+$button-secondary-ghost-text-color: $gray-4;
+$button-secondary-ghost-border-color: $gray-4;
+$button-secondary-ghost-box-shadow-color: $gray-2;
