@@ -1,0 +1,27 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+skip_files:
+- .storybook/
+- build/
+- node_modules/
+- public/
+- src/
+- .editorconfig
+- .env
+- .eslintrc.js
+- .gitignore
+- app.yaml
+- package.json
+- README.md
+- yarn-error.log
+- yarn.lock
+
+handlers:
+  - url: /
+    static_files: storybook-static/index.html
+    upload: storybook-static/index.html
+
+  - url: /(.*)
+    static_files: storybook-static/\1
+    upload: storybook-static/(.*)

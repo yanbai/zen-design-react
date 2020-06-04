@@ -2,32 +2,26 @@ import React from 'react'
 import './index.scss'
 import Icon from '../Icon'
 
-class Button extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    const Component = this.props.href ? 'a' : 'button'
+function Button(props) {
+  const Component = props.href ? 'a' : 'button'
     const otherAttributes = Object.assign({}, {
-      href: this.props.href,
-      disabled: this.props.disabled
+      href: props.href,
+      disabled: props.disabled
     })
     // const otherClasses = {
 
     // }
-    const typeClass = this.props.type ? `zen-button--${this.props.type}` : ''
-    const disabledClass = this.props.disabled ? 'zen-button--disabled' : ''
-    const ghostClass = this.props.ghost ? 'zen-button--ghost' : ''
-    const blockClass = this.props.block ? 'zen-button--block' : ''
+    const typeClass = props.type ? `zen-button--${props.type}` : ''
+    const disabledClass = props.disabled ? 'zen-button--disabled' : ''
+    const ghostClass = props.ghost ? 'zen-button--ghost' : ''
+    const blockClass = props.block ? 'zen-button--block' : ''
 
     const className = `zen-button ${typeClass} ${disabledClass} ${ghostClass} ${blockClass}`
 
-    const icon = this.props.icon ? <Icon name={this.props.icon} /> : null
+    const icon = props.icon ? <Icon name={props.icon} /> : null
     return (
-      <Component className={className} {...otherAttributes}>{icon} {this.props.children}</Component>
+      <Component className={className} {...otherAttributes}>{icon} props.children}</Component>
     )
-  }
 }
 
 export default Button

@@ -7,5 +7,6 @@ module.exports = {
     '@storybook/addon-actions/register',
     '@storybook/addon-knobs/register',
     '@storybook/addon-notes/register'
-  ]
+  ],
+  webpackFinal: (config) => console.dir(config, { depth: null }) || config
 };

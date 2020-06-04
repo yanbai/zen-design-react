@@ -31,9 +31,9 @@ function App() {
   const collapseContent = (
     <div>
       <ul>
-        <li><a href="">blue</a></li>
-        <li><a href="">tomato</a></li>
-        <li><a href="">orange</a></li>
+        <li>blue</li>
+        <li>tomato</li>
+        <li>orange</li>
       </ul>
     </div>
   )
