@@ -20,7 +20,7 @@ function Button(props) {
 
     const icon = props.icon ? <Icon name={props.icon} /> : null
     return (
-      <Component className={className} {...otherAttributes}>{icon} props.children}</Component>
+      <Component className={className} {...otherAttributes}>{icon} {props.children}</Component>
     )
 }
 

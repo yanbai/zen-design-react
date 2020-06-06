@@ -10,9 +10,6 @@ class Collapse extends React.Component {
     }
     this.handleToggle = this.handleToggle.bind(this)
   }
-  itemClass() {
-    return this.state.isExpanded ? 'zen-collapse__item--expanded' : ''
-  }
   handleToggle() {
     this.setState({
       isExpanded: !this.state.isExpanded
