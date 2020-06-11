@@ -3,23 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/register": "^7.10.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "babel-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
     "postcss-normalize": "^9.0.0",
-    "react-onclickoutside": "^6.9.0"
+    "react": "^16.13.1",
+    "react-dev-utils": "^10.2.1",
+    "react-dom": "^16.13.1",
+    "react-onclickoutside": "^6.9.0",
+    "react-scripts": "3.4.1",
+    "webpack-cli": "^3.3.11"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "build-npm": "set NODE_ENV=production&& rimraf ./dist && webpack --config config/webpack.npm.config.babel.js --display-error-details"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +45,12 @@
       "last 1 safari version"
     ]
   },
+  "babel": {
+    "presets": [
+      "react-app",
+      "@babel/preset-env"
+    ]
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
@@ -43,6 +58,7 @@
     "@storybook/addon-notes": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.0.0",
-    "@storybook/react": "^5.3.19"
+    "@storybook/react": "^5.3.19",
+    "source-map-explorer": "^2.4.2"
   }
 }
