@@ -85,15 +85,21 @@ console.log('---------------config---------------')
 const config = {
   mode: 'development',
   entry: {
-    'ZenButton': './src/components/Button/index.js'
-    // 'ZenCollapse': './src/components/Collapse/index.js',
-    // 'ZenIcon': './src/components/Icon/index.js',
-    // 'ZenSelect': './src/components/Select/index.js'
+    'base': './src/base.js',
+    'ZenButton': './src/components/Button/index.js',
+    'ZenCollapse': './src/components/Collapse/index.js',
+    'ZenIcon': './src/components/Icon/index.js',
+    'ZenSelect': './src/components/Select/index.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
     libraryTarget: 'umd'
+  },
+  resolve: {
+    alias: {
+      'assets': path.resolve(__dirname, '../src/assets')
+    }
   },
   module: {
     strictExportPresence: true,

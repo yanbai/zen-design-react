@@ -4,9 +4,7 @@
   */
 $white: #ffffff;
 $black: #000000;
-$color-00b84b: #00b84b; //green-1
 $blue-1: #227fed; // hover background color
-$color-f5b068: #f5b068; //orange-1
 $red-1: #7f0019;
 $gray-1: rgba(0,0,0,.015); //shadow
 $gray-2: rgba(88, 88, 88, 0.3); //shadow
@@ -16,9 +14,10 @@ $gray-5: #fafafa; // cover background color
 
 // common
 $text-color: $gray-4;
-$border-color: $gray-3;
+$border-color: $gray-4;
 $box-shadow-color: $gray-2;
 $background-color: $white;
+$brand-color: $red-1;
 $selected-background-color: $gray-5;
 $hover-background-color: $blue-1;
 

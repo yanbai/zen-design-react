@@ -1,4 +1,4 @@
-@import 'assets/style/reset.scss';
+@import 'assets/style/base';
 @import 'assets/style/variables';
 
 .zen-button {
@@ -17,7 +17,7 @@
   height: 32px;
   padding: 0 15px;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 0;
   color: rgba(0,0,0,.65);
   border: 1px solid $button-border-color;
   background-color: $button-backgound-color;
@@ -31,7 +31,7 @@
     font-size: 12px;
     box-shadow: $button-primary-box-shadow-color 0px 1px 3px;
     border: 1px solid $button-primary-backgound-color;
-    border-radius: 25px;
+    border-radius: 0;
     &.zen-button--ghost {
       background-color: $button-primary-ghost-backgound-color;
       color: $button-primary-ghost-text-color;
@@ -47,7 +47,7 @@
     font-size: 12px;
     box-shadow: $button-secondary-box-shadow-color 0px 1px 3px;
     border: 1px solid $button-secondary-border-color;
-    border-radius: 25px;
+    border-radius: 0;
     &.zen-button--ghost {
       background-color: $button-secondary-ghost-backgound-color;
       color: $button-secondary-ghost-text-color;

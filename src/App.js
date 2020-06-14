@@ -1,9 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './assets/style/reset.scss'
-import './assets/style/custom-global.scss'
-import './assets/style/webfonts.scss'
+import './assets/style/base'
 import Button from './components/Button'
 import Collapse from './components/Collapse'
 

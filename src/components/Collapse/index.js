@@ -24,8 +24,10 @@ class Collapse extends React.Component {
             <Icon name='chevron-down' className="zen-collapse__icon" />
             <span>{this.props.header}</span>
           </div>
-          <div className="zen-collapse__content">
-            {this.props.content}
+          <div className="zen-collapse__content-outer">
+            <div className="zen-collapse__content-inner">
+              {this.props.content}
+            </div>
           </div>
         </div>
       </div>

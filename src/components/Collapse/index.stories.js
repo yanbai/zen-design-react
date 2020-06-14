@@ -7,17 +7,27 @@ export default {
   decorators: [withKnobs]
 }
 
-const collapseContent = (
+const collapseContent_1 = (
   <div>
-    <ul>
-      <li>blue</li>
-      <li>tomato</li>
-      <li>orange</li>
-    </ul>
+    <p className="column">blue</p>
+    <p className="column">tomato</p>
+    <p className="column">orange</p>
+  </div>
+)
+
+const collapseContent_2 = (
+  <div>
+    <p className="column">shirts</p>
+    <p className="column">pants</p>
+    <p className="column">watches</p>
   </div>
 )
 
 export const collapse = () => (
-  <Collapse header="product type" content={collapseContent}
-  />
+  <>
+    <Collapse header="color type" content={collapseContent_1}
+    />
+    <Collapse header="product type" content={collapseContent_2}
+    />
+  </>
 )

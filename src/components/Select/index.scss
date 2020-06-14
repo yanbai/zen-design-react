@@ -1,8 +1,8 @@
-@import 'assets/style/reset.scss';
+@import 'assets/style/base';
 @import 'assets/style/variables';
 
-$select-height: 32px;
-$dropdown-position-top: 38px;
+$select-height: 40px;
+$dropdown-position-top: 42px;
 
 .zen-select__container {
   position: relative;
@@ -11,7 +11,7 @@ $dropdown-position-top: 38px;
 .zen-select__title-outer {
   background-color: $background-color;
   border: 1px solid $border-color;
-  border-radius: 4px;
+  border-radius: 0;
   outline: none;
   user-select: none;
   height: $select-height;
@@ -25,10 +25,13 @@ $dropdown-position-top: 38px;
   line-height: $select-height;
   font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
   color: $text-color;
+  display: flex;
+  justify-content: space-between;
 }
 
 .zen-select__arrow {
   user-select: none;
+  line-height: $select-height;
 }
 
 .zen-select__container .zen-select__dropdown-container {
@@ -37,6 +40,10 @@ $dropdown-position-top: 38px;
 
 .zen-select__container--expanded .zen-select__dropdown-container {
   display: block;
+}
+
+.zen-select__container--expanded .zen-select__arrow {
+  transform: rotate(-180deg);
 }
 
 .zen-select__dropdown-container {
@@ -48,7 +55,7 @@ $dropdown-position-top: 38px;
   z-index: 1050;
   font-size: 14px;
   background-color: $background-color;
-  border-radius: 4px;
+  border-radius: 0;
   box-shadow: 0 2px 8px $box-shadow-color;
 }
 

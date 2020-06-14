@@ -2,6 +2,7 @@ import React from 'react'
 import './index.scss'
 import PropTypes from 'prop-types'
 import onClickOutside from 'react-onclickoutside'
+import Icon from '../Icon'
 
 class ZenSelect extends React.Component {
   constructor(props) {
@@ -36,12 +37,9 @@ class ZenSelect extends React.Component {
       <div className={ 'zen-select__container ' + expandedClass }>
         <div className="zen-select__title-outer zen-select__title--single" onClick={this.handleToggle}>
           <div className="zen-select__title-inner">
-            {value}
+            <span>{value}</span>
+            <Icon name='chevron-down' className="zen-select__arrow" />
           </div>
-          <span className="zen-select__arrow" unselectable="on">
-            <i>
-            </i>
-          </span>
         </div>
         <div className="zen-select__dropdown-container">
           <ul className="zen-select__dropdown-list">
