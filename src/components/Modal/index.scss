@@ -1,0 +1,60 @@
+@import 'assets/style/base';
+@import 'assets/style/variables';
+
+.zen-modal__overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.zen-modal__overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.zen-modal__popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: $background-color;
+  border-radius: 0;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.zen-modal__popup .zen-modal__header {
+  margin-top: 0;
+  color: $text-color;
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 40px;
+  height: 40px;
+}
+.zen-modal__popup .zen-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.zen-modal__popup .zen-modal__close:hover {
+  color: $brand-color;
+}
+.zen-modal__popup .zen-modal__content {
+  max-height: 30%;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+}

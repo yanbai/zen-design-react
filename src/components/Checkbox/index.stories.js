@@ -7,6 +7,47 @@ export default {
   decorators: [withKnobs]
 }
 
+export const checkbox = () => (
+  <ZenCheckbox
+    label={text("Label", 'Married')}
+    checked={boolean("Checked", true)}
+    disabled={boolean("Disabled", false)}
+  />
+)
+
+
+
+class CheckboxWithHandleChanged extends React.Component {
+  constructor(props) {
+    super(props)
+    this.changeValue = this.changeValue.bind(this)
+    this.state = {
+      checked: true
+    }
+  }
+
+  changeValue(e) {
+    this.setState({
+      checked: e.target.checked
+    })
+  }
+
+  render() {
+    return (
+      <ZenCheckbox
+        label={text("Label", 'Married')}
+        id={text("Id", 'marriage')}
+        checked={this.state.checked}
+        handleChanged={this.changeValue}
+      />
+    )
+  }
+}
+
+export const checkboxWithHandleChanged = () => (
+  <CheckboxWithHandleChanged />
+)
+
 class CheckboxGroup extends React.Component {
   constructor(props) {
     super(props)
@@ -40,46 +81,33 @@ class CheckboxGroup extends React.Component {
   }
 
   render() {
+    const {
+      name,
+      value,
+      options
+    } = this.props
+
     return (
       <>
-        <div className="column">
-          <ZenCheckbox
-            label={this.state.user[0].name}
-            name={this.state.user[0].name}
-            id={this.state.user[0].id}
-            checked={this.state.user[0].value}
-            handleChanged={this.changeValue.bind(this, this.state.user[0].id)} />
-        </div>
-        <div className="column">
-          <ZenCheckbox
-            label={this.state.user[1].name}
-            name={this.state.user[1].name}
-            id={this.state.user[1].id}
-            checked={this.state.user[1].value}
-            handleChanged={this.changeValue.bind(this, this.state.user[1].id)} />
-        </div>
+        {options.map(option => (
+          <div className="column">
+            <ZenCheckbox
+              label={option}
+              name={name}
+              id={option}
+              checked={value.includes(option)}
+            />
+          </div>
+        ))}
       </>
     )
   }
 }
 
-function changeValue(id, checked) {
-  console.log('----------id-------------')
-  console.log(id)
-}
-
-export const checkbox = () => (
-  <ZenCheckbox
-    label={text("Label", 'Married')}
-    name={text("Name", 'marriage')}
-    id={text("id", 'marriage')}
-    checked={boolean("checked", true)}
-    disabled={boolean("Disabled", false)}
-    handleChanged={changeValue.bind(this, 'marriage')}
-  />
-)
-
-
-export const checkboxGroup = () => (
-  <CheckboxGroup />
-)
+// export const checkboxGroup = () => (
+//   <CheckboxGroup
+//     options={['oranve', 'apple', 'pear']}
+//     value={['apple']}
+//     name='fruit'
+//   />
+// )

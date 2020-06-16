@@ -4,11 +4,10 @@
   */
 $white: #ffffff;
 $black: #000000;
-$blue-1: #227fed; // hover background color
 $red-1: #7f0019;
-$gray-1: rgba(0,0,0,.015); //shadow
+// $gray-1: rgba(0,0,0,.015); //shadow
 $gray-2: rgba(88, 88, 88, 0.3); //shadow
-$gray-3: #d9d9d9; //button border
+// $gray-3: #d9d9d9; //button border
 $gray-4: rgb(88, 88, 88); //secondary button color and border color
 $gray-5: #fafafa; // cover background color
 
@@ -19,12 +18,12 @@ $box-shadow-color: $gray-2;
 $background-color: $white;
 $brand-color: $red-1;
 $selected-background-color: $gray-5;
-$hover-background-color: $blue-1;
+$hover-background-color: $gray-5;
 
 // button
 $button-backgound-color: $white;
-$button-border-color: $gray-3;
-$button-box-shadow-color: $gray-1;
+$button-border-color: $gray-4;
+$button-box-shadow-color: $gray-2;
 
 // button-primary
 $button-primary-backgound-color: $red-1;
