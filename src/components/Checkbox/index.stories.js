@@ -51,51 +51,47 @@ export const checkboxWithHandleChanged = () => (
 class CheckboxGroup extends React.Component {
   constructor(props) {
     super(props)
+    this.changeValue = this.changeValue.bind(this)
     this.state = {
-      'user': [{
-        id: 'shirt',
-        name: 'shirt',
-        value: true
-      }, {
-        id: 'pants',
-        name: 'pants',
-        value: false
-      }]}
+      options: [
+        { label: 'Apple', value: 'apple' },
+        { label: 'Pear', value: 'pear' },
+        { label: 'Orange', value: 'orange' }
+      ],
+      value: ['orange', 'pear']
+    }
   }
 
-  changeValue(id, checked) {
-    console.log('----------id-------------')
-    console.log(id)
-    let temp = this.state.user
-    if(id === 'shirt') {
-      temp[0].value = !checked
-      this.setState({
-        user: temp
-      })
-    } else if(id === 'pants') {
-      temp[1].value = !checked
-      this.setState({
-        user: temp
-      })
+  changeValue(event, id) {
+    let temp = [...this.state.value]
+    console.log(temp)
+    if(event.target.checked) {
+      temp.push(id)
+    } else {
+      let position = temp.indexOf(id)
+      temp.splice(position, 1)
     }
+
+    this.setState({
+      value: temp
+    })
   }
 
   render() {
     const {
-      name,
       value,
       options
-    } = this.props
+    } = this.state
 
     return (
       <>
         {options.map(option => (
-          <div className="column">
+          <div className="column" key={option.value}>
             <ZenCheckbox
-              label={option}
-              name={name}
-              id={option}
-              checked={value.includes(option)}
+              label={option.label}
+              id={option.value}
+              checked={value.includes(option.value)}
+              handleChanged={(e) => this.changeValue(e, option.value)}
             />
           </div>
         ))}
@@ -104,10 +100,6 @@ class CheckboxGroup extends React.Component {
   }
 }
 
-// export const checkboxGroup = () => (
-//   <CheckboxGroup
-//     options={['oranve', 'apple', 'pear']}
-//     value={['apple']}
-//     name='fruit'
-//   />
-// )
+export const checkboxGroup = () => (
+  <CheckboxGroup />
+)
