@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs";
 import Modal from './index'
 import Button from '../Button'
 import Collapse from '../Collapse'
@@ -15,111 +15,106 @@ class FilterForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      'filterResult': [{
-        id: 'x',
-        name: 'extra large',
-        label: 'extra large',
-        value: true
-      }, {
-        id: 'm',
-        name: 'medium',
-        label: 'medium',
-        value: false
-      }],
-
-      filterResultV2: {
-        'size-x': true,
-        'size-m': false
-      },
+      sizeOptions: [
+        { label: 'Extra Large', value: 'xl' },
+        { label: 'Large', value: 'l' },
+        { label: 'Medium', value: 'm' },
+        { label: 'Small', value: 's' }
+      ],
+      sizeValue: ['s', 'm'],
 
       countryOptions: [{
         value: 'sg',
-        label: 'singapore'
+        label: 'Singapore'
       }, {
         value: 'us',
-        label: 'america'
+        label: 'America'
       }, {
         value: 'en',
-        label: 'england'
+        label: 'England'
       }],
 
       selected: 'us'
     }
   }
 
-  changeValue(value, label) {
+  changeCountry(value, label) {
     this.setState({
       selected: value
     })
   }
 
-  changeValue(id, checked) {
-    console.log('----------id-------------')
-    console.log(id)
-    let temp = this.state.filterResult
-    if(id === 'x') {
-      temp[0].value = !checked
-      this.setState({
-        filterResult: temp
-      })
-    } else if(id === 'm') {
-      temp[1].value = !checked
-      this.setState({
-        filterResult: temp
-      })
+  changeSize(event, id) {
+    let temp = [...this.state.sizeValue]
+    if(event.target.checked) {
+      temp.push(id)
+    } else {
+      let position = temp.indexOf(id)
+      temp.splice(position, 1)
     }
+
+    this.setState({
+      sizeValue: temp
+    })
   }
 
   render() {
-    const collapseContent_1 = (
+    const {
+      sizeOptions,
+      sizeValue
+    } = this.state
+
+    const sizeContent = (
       <>
-        <div className="column">
-          <Checkbox
-            label={this.state.filterResult[0].label}
-            name={this.state.filterResult[0].name}
-            id={this.state.filterResult[0].id}
-            checked={this.state.filterResult[0].value}
-            handleChanged={this.changeValue.bind(this, this.state.filterResult[0].id)} />
-        </div>
-        <div className="column">
-          <Checkbox
-            label={this.state.filterResult[1].label}
-            name={this.state.filterResult[1].name}
-            id={this.state.filterResult[1].id}
-            checked={this.state.filterResult[1].value}
-            handleChanged={this.changeValue.bind(this, this.state.filterResult[1].id)} />
-        </div>
+        {sizeOptions.map(option => (
+          <div className="column" key={option.value}>
+            <Checkbox
+              label={option.label}
+              id={option.value}
+              checked={sizeValue.includes(option.value)}
+              handleChanged={(e) => this.changeSize(e, option.value)}
+            />
+          </div>
+        ))}
       </>
     )
 
-    const collapseContent_2 = (
+    const countryContent = (
       <div>
-        <Select options={this.state.countryOptions} value={this.state.selected} handleChanged={this.changeValue} />
+        <Select
+          options={this.state.countryOptions}
+          value={this.state.selected}
+          handleChanged={(value, label) => this.changeCountry(value, label)} />
       </div>
     )
 
-    const content = (
-      <>
+    const modalContent = (
+      <form>
         <div className="column">
-          <Collapse header="Size" content={collapseContent_1}></Collapse>
+          <Collapse
+            header="Size"
+            content={sizeContent}
+          />
         </div>
         <div className="column">
-          <Collapse header="Please select" content={collapseContent_2}></Collapse>
+          <Collapse
+            header="Please select"
+            content={countryContent}
+          />
         </div>
         <div className="column">
           <Button type="primary" block>
             submit
           </Button>
         </div>
-      </>
+      </form>
     )
+
     return (
-      <Modal content={content} />
+      <Modal content={modalContent} />
     )
   }
 }
-
-
 
 export const modal = () => (
   <>

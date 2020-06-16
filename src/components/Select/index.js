@@ -3,11 +3,11 @@ import './index.scss'
 import PropTypes from 'prop-types'
 import onClickOutside from 'react-onclickoutside'
 import Icon from '../Icon'
+import find from 'lodash/find'
 
 class ZenSelect extends React.Component {
   constructor(props) {
     super(props)
-    this.handleToggle = this.handleToggle.bind(this)
     this.state = {
       isExpanded: false
     }
@@ -20,24 +20,41 @@ class ZenSelect extends React.Component {
   }
 
   handleToggle() {
+    if(!this.props.disabled) {
+      this.setState({
+        isExpanded: !this.state.isExpanded
+      })
+    }
+  }
+
+  handleSelected(value, label) {
+    this.props.handleChanged(value, label)
     this.setState({
-      isExpanded: !this.state.isExpanded
+      isExpanded: false
     })
+  }
+
+  showDisplayName(selectedValue) {
+    let selectedOb = find(this.props.options, item => item.value === selectedValue)
+    return selectedOb['label']
   }
 
   render() {
     const {
       options,
       value,
-      handleChanged
+      name,
+      disabled
     } = this.props
 
     const expandedClass = this.state.isExpanded ? 'zen-select__container--expanded' : ''
+    const disabledClass = disabled ? 'zen-select__container--disabled' : ''
     return (
-      <div className={ 'zen-select__container ' + expandedClass }>
-        <div className="zen-select__title-outer zen-select__title--single" onClick={this.handleToggle}>
+      <div className={ 'zen-select__container ' + expandedClass + disabledClass }>
+        <input type="hidden" name={name} value={value} />
+        <div className="zen-select__title-outer" onClick={() => this.handleToggle()}>
           <div className="zen-select__title-inner">
-            <span>{value}</span>
+            <span>{this.showDisplayName(value)}</span>
             <Icon name='chevron-down' className="zen-select__arrow" />
           </div>
         </div>
@@ -48,7 +65,7 @@ class ZenSelect extends React.Component {
                 className={'zen-select__dropdown-item ' + (item.value === value ? 'zen-select__dropdown-item--selected' : '')}
                 key={item.value}
                 id={item.value}
-                onClick={() => handleChanged(item.value, item.label)}
+                onClick={() => this.handleSelected(item.value, item.label)}
               >{item.label}</li>
             ))}
           </ul>
@@ -59,7 +76,17 @@ class ZenSelect extends React.Component {
 }
 
 ZenSelect.propTypes = {
-  handleChanged: PropTypes.func.isRequired
+  handleChanged: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  options: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+    if(!propValue[key].hasOwnProperty('value') || !propValue[key].hasOwnProperty('label')) {
+      return new Error(
+        'Invalid prop `' + propFullName + '` supplied to' +
+        ' `' + componentName + '`. Validation failed.'
+      )
+    }
+  })
 }
 
 export default onClickOutside(ZenSelect)

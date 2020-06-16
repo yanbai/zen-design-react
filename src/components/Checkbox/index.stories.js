@@ -64,7 +64,6 @@ class CheckboxGroup extends React.Component {
 
   changeValue(event, id) {
     let temp = [...this.state.value]
-    console.log(temp)
     if(event.target.checked) {
       temp.push(id)
     } else {

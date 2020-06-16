@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
 import ZenSelect from './index'
 
 export default {
@@ -14,13 +14,13 @@ class SelectStory extends React.Component {
     this.state = {
       options: [{
         value: 'sg',
-        label: 'singapore'
+        label: 'Singapore'
       }, {
         value: 'us',
-        label: 'america'
+        label: 'America'
       }, {
         value: 'en',
-        label: 'england'
+        label: 'England'
       }],
       selected: 'us'
     }
@@ -34,7 +34,12 @@ class SelectStory extends React.Component {
 
   render() {
     return (
-      <ZenSelect options={this.state.options} value={this.state.selected} handleChanged={this.changeValue} />
+      <ZenSelect
+        options={this.state.options}
+        value={this.state.selected}
+        disabled={boolean("Disabled", false)}
+        handleChanged={this.changeValue}
+      />
     )
   }
 }

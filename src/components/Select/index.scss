@@ -4,8 +4,29 @@
 $select-height: 40px;
 $dropdown-position-top: 42px;
 
+.zen-select__container .zen-select__dropdown-container {
+  display: none;
+}
+
 .zen-select__container {
   position: relative;
+
+  &--expanded {
+    .zen-select__dropdown-container {
+      display: block;
+    }
+    .zen-select__arrow {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    .zen-select__title-outer {
+      cursor: not-allowed;
+    }
+  }
 }
 
 .zen-select__title-outer {
@@ -16,40 +37,23 @@ $dropdown-position-top: 42px;
   user-select: none;
   height: $select-height;
   cursor: pointer;
-}
-
-.zen-select__title-inner {
-  position: relative;
-  text-align: left;
-  padding: 0 16px;
-  line-height: $select-height;
-  font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  color: $text-color;
-  display: flex;
-  justify-content: space-between;
-}
-
-.zen-select__arrow {
-  user-select: none;
-  line-height: $select-height;
-}
-
-.zen-select__container .zen-select__dropdown-container {
-  display: none;
-}
-
-.zen-select__container--expanded .zen-select__dropdown-container {
-  display: block;
-}
-
-.zen-select__container--expanded .zen-select__arrow {
-  transform: rotate(-180deg);
+  .zen-select__title-inner {
+    position: relative;
+    text-align: left;
+    padding: 0 16px;
+    line-height: $select-height;
+    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    color: $text-color;
+    display: flex;
+    justify-content: space-between;
+  }
+  .zen-select__arrow {
+    user-select: none;
+    line-height: $select-height;
+  }
 }
 
 .zen-select__dropdown-container {
-  position: absolute;
-  top: $dropdown-position-top;
-  left: 0px;
   width: 100%;
   line-height: 1.5;
   z-index: 1050;
@@ -57,28 +61,27 @@ $dropdown-position-top: 42px;
   background-color: $background-color;
   border-radius: 0;
   box-shadow: 0 2px 8px $box-shadow-color;
-}
-
-.zen-select__dropdown-item {
-  position: relative;
-  display: block;
-  padding: 5px 16px;
-  overflow: hidden;
-  color: $text-color;
-  font-weight: 400;
-  line-height: 22px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  transition: background .3s ease;
-  text-align: left;
-  font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  &--selected, &--selected:hover {
+  .zen-select__dropdown-item {
+    position: relative;
+    display: block;
+    padding: 5px 16px;
+    overflow: hidden;
     color: $text-color;
-    font-weight: 600;
-    background-color: $selected-background-color;
-  }
-  &:hover {
-    background-color: $hover-background-color;
+    font-weight: 400;
+    line-height: 22px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: background .3s ease;
+    text-align: left;
+    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    &--selected, &--selected:hover {
+      color: $text-color;
+      font-weight: 600;
+      background-color: $selected-background-color;
+    }
+    &:hover {
+      background-color: $hover-background-color;
+    }
   }
 }
