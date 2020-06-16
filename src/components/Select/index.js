@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import onClickOutside from 'react-onclickoutside'
 import Icon from '../Icon'
 import find from 'lodash/find'
+import classNames from 'classnames'
 
 class ZenSelect extends React.Component {
   constructor(props) {
@@ -47,10 +48,14 @@ class ZenSelect extends React.Component {
       disabled
     } = this.props
 
-    const expandedClass = this.state.isExpanded ? 'zen-select__container--expanded' : ''
-    const disabledClass = disabled ? 'zen-select__container--disabled' : ''
+    const selectClass = classNames({
+      'zen-select__container': true,
+      'zen-select__container--expanded': this.state.isExpanded,
+      'zen-select__container--disabled': disabled
+    })
+
     return (
-      <div className={ 'zen-select__container ' + expandedClass + disabledClass }>
+      <div className={selectClass}>
         <input type="hidden" name={name} value={value} />
         <div className="zen-select__title-outer" onClick={() => this.handleToggle()}>
           <div className="zen-select__title-inner">

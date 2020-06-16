@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from '../Icon'
 import './index.scss'
+import classNames from 'classnames'
 
 class Collapse extends React.Component {
   constructor(props) {
@@ -16,10 +17,13 @@ class Collapse extends React.Component {
     })
   }
   render() {
-    const itemClass = this.state.isExpanded ? 'zen-collapse__item--expanded' : ''
+    const itemClass = classNames({
+      'zen-collapse__item': true,
+      'zen-collapse__item--expanded': this.state.isExpanded
+    })
     return (
       <div className="zen-collapse">
-        <div className={ 'zen-collapse__item ' + itemClass }>
+        <div className={ itemClass }>
           <div className="zen-collapse__header" onClick={this.handleToggle}>
             <Icon name='chevron-down' className="zen-collapse__icon" />
             <span>{this.props.header}</span>
