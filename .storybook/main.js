@@ -8,5 +8,9 @@ module.exports = {
     '@storybook/addon-knobs/register',
     '@storybook/addon-notes/register'
   ],
-  webpackFinal: (config) => console.dir(config, { depth: null }) || config
+  webpackFinal: (config, { configType }) => {
+    console.log(configType)
+    console.log('---------above is configType--------------')
+    return console.dir(config, { depth: null }) || config
+  }
 };

@@ -7,15 +7,13 @@ export default {
   decorators: [withKnobs]
 }
 
-export const checkbox = () => (
-  <ZenCheckbox
-    label={text("Label", 'Married')}
-    checked={boolean("Checked", true)}
-    disabled={boolean("Disabled", false)}
-  />
-)
-
-
+// export const checkbox = () => (
+//   <ZenCheckbox
+//     label={text("Label", 'Married')}
+//     checked={boolean("Checked", true)}
+//     disabled={boolean("Disabled", false)}
+//   />
+// )
 
 class CheckboxWithHandleChanged extends React.Component {
   constructor(props) {
@@ -36,7 +34,8 @@ class CheckboxWithHandleChanged extends React.Component {
     return (
       <ZenCheckbox
         label={text("Label", 'Married')}
-        id={text("Id", 'marriage')}
+        disabled={boolean("Disabled", false)}
+        id={'marriage'}
         checked={this.state.checked}
         handleChanged={this.changeValue}
       />
@@ -44,7 +43,7 @@ class CheckboxWithHandleChanged extends React.Component {
   }
 }
 
-export const checkboxWithHandleChanged = () => (
+export const checkbox = () => (
   <CheckboxWithHandleChanged />
 )
 

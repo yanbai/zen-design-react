@@ -1,8 +1,24 @@
 import React from 'react'
 import './index.scss'
+import classnames from 'classnames'
+
 function ZenInput(props) {
+  const {
+    disabled,
+    ...others
+  } = props
+
+  const inputClass = classnames({
+    'zen-input': true,
+    'zen-input--disabled': disabled
+  })
   return (
-    <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] zen-input" placeholder="Name" id="name" />
+    <input
+      type="text"
+      disabled={ disabled }
+      { ...others }
+      className = { inputClass }
+    />
   )
 }
 
