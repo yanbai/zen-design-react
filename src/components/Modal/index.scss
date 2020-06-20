@@ -11,11 +11,11 @@
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
-}
 
-.zen-modal__overlay:target {
-  visibility: visible;
-  opacity: 1;
+  &--open {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .zen-modal__popup {
@@ -36,6 +36,7 @@
   height: 40px;
 }
 .zen-modal__popup .zen-modal__close {
+  cursor: pointer;
   position: absolute;
   top: 20px;
   right: 30px;

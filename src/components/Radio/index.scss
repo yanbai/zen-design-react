@@ -1,0 +1,65 @@
+
+@import 'assets/style/base';
+@import 'assets/style/variables';
+.zen-radio{
+  color: $text-color;
+  display: inline-block;
+  position: relative;
+}
+
+.zen-radio input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+.zen-radio label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 3px 3px 3px 30px;
+  margin: 0 auto;
+  height: 16px;
+  z-index: 9;
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+
+.zen-radio .check{
+  display: block;
+  position: absolute;
+  border: 1px solid $text-color;
+  border-radius: 100%;
+  height: 16px;
+  width: 16px;
+  top: 0;
+  left: 0;
+	z-index: 5;
+	transition: border .25s linear;
+}
+
+.zen-radio .check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  top: 3px;
+  left: 3px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+.zen-radio input[type=radio]:checked ~ .check {
+  border: 1px solid $text-color;
+}
+
+.zen-radio input[type=radio]:checked ~ .check::before{
+  background: $brand-color;
+}
+
+.zen-radio input[type=radio]:checked ~ label{
+  color: $text-color;
+}

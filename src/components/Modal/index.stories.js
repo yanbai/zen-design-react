@@ -34,7 +34,9 @@ class FilterForm extends React.Component {
         label: 'England'
       }],
 
-      selected: 'us'
+      selected: 'us',
+
+      isPopupOpen: false
     }
   }
 
@@ -55,6 +57,18 @@ class FilterForm extends React.Component {
 
     this.setState({
       sizeValue: temp
+    })
+  }
+
+  openPopup() {
+    this.setState({
+      isPopupOpen: true
+    })
+  }
+
+  closePopup() {
+    this.setState({
+      isPopupOpen: false
     })
   }
 
@@ -111,7 +125,21 @@ class FilterForm extends React.Component {
     )
 
     return (
-      <Modal content={modalContent} />
+      <>
+        <Button
+          type="secondary"
+          href="#"
+          ghost
+          onClick={()=>this.openPopup()}
+        >
+          Show Modal
+        </Button>
+        <Modal
+          isOpen={this.state.isPopupOpen}
+          content={modalContent}
+          handleClose={()=>this.closePopup()}
+        />
+      </>
     )
   }
 }
@@ -120,13 +148,6 @@ export const modal = () => (
   <>
     <div className="column">
       <h1>Popup/Modal Windows</h1>
-      <Button
-        type="secondary"
-        href="#popup1"
-        ghost
-      >
-        Show Modal
-      </Button>
       <FilterForm />
     </div>
   </>

@@ -89,6 +89,8 @@ const config = {
     'ZenButton': './src/components/Button/index.js',
     'ZenCollapse': './src/components/Collapse/index.js',
     'ZenIcon': './src/components/Icon/index.js',
+    'ZenInput': './src/components/Input/index.js',
+    'ZenModal': './src/components/Modal/index.js',
     'ZenSelect': './src/components/Select/index.js'
   },
   output: {
@@ -294,8 +296,10 @@ const config = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'static/css/[name].[contenthash:8].css',
-      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+      // filename: 'static/css/[name].[contenthash:8].css',
+      // chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+      filename: 'static/css/[name].css',
+      chunkFilename: 'static/css/[name].chunk.css',
     })
   ]
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './assets/style/base'
+import './assets/style/_base.scss'
 import Button from './components/Button'
 import Collapse from './components/Collapse'
 
