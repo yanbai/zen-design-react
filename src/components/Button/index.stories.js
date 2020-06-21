@@ -10,7 +10,7 @@ export default {
 export const button = () => (
   <>
     <div className="column">
-    <Button type={select("ButtonTypes", ['primary', 'secondary'], "primary")}
+    <Button level={select("ButtonLevels", ['primary', 'secondary'], "primary")}
             disabled={boolean("Disabled", false)}
             block={boolean("Block", false)}
             ghost={boolean("Ghost", false)}
@@ -21,20 +21,20 @@ export const button = () => (
     </Button>
     </div>
     <div className="column">
-    <Button type="primary"
+    <Button level="primary"
             ghost={true}
     >
       {text("Label", "Hello World")}
     </Button>
     </div>
     <div className="column">
-    <Button type="secondary"
+    <Button level="secondary"
     >
       {text("Label", "Hello World")}
     </Button>
     </div>
     <div className="column">
-    <Button type="secondary"
+    <Button level="secondary"
             ghost={true}
     >
       {text("Label", "Hello World")}

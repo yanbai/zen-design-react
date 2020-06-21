@@ -6,32 +6,21 @@ import classNames from 'classnames'
 class Button extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick(e) {
-    e.preventDefault()
-    this.props.onClick()
   }
 
   render() {
-    const Component = this.props.href ? 'a' : 'button'
     const {
-      type,
-      disabled,
+      level,
       ghost,
       block,
-      onClick
+      ...passThroughProps
     } = this.props
+    const Component = this.props.href ? 'a' : 'button'
 
-    const otherAttributes = Object.assign({}, {
-      href: this.props.href,
-      disabled: this.props.disabled,
-    })
     const buttonClass = classNames({
       'zen-button': true,
-      [`zen-button--${type}`]: type,
-      'zen-button--disabled': disabled,
+      [`zen-button--${level}`]: level,
+      'zen-button--disabled': this.props.disabled,
       'zen-button--ghost': ghost,
       'zen-button--block': block
     })
@@ -39,9 +28,8 @@ class Button extends React.Component {
     const icon = this.props.icon ? <Icon name={this.props.icon} /> : null
     return (
       <Component
-        onClick={this.handleClick}
         className={buttonClass}
-        {...otherAttributes}
+        {...passThroughProps}
       >
         {icon} {this.props.children}
       </Component>

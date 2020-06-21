@@ -11,7 +11,7 @@ export default {
   decorators: [withKnobs]
 }
 
-class FilterForm extends React.Component {
+class FilterFormPopup extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -60,7 +60,8 @@ class FilterForm extends React.Component {
     })
   }
 
-  openPopup() {
+  openPopup(e) {
+    e.preventDefault()
     this.setState({
       isPopupOpen: true
     })
@@ -83,6 +84,7 @@ class FilterForm extends React.Component {
         {sizeOptions.map(option => (
           <div className="column" key={option.value}>
             <Checkbox
+              name={option.value}
               label={option.label}
               id={option.value}
               checked={sizeValue.includes(option.value)}
@@ -96,6 +98,7 @@ class FilterForm extends React.Component {
     const countryContent = (
       <div>
         <Select
+          name="placeOfCountry"
           options={this.state.countryOptions}
           value={this.state.selected}
           handleChanged={(value, label) => this.changeCountry(value, label)} />
@@ -103,7 +106,7 @@ class FilterForm extends React.Component {
     )
 
     const modalContent = (
-      <form>
+      <form action="/submit_filter" method="post">
         <div className="column">
           <Collapse
             header="Size"
@@ -117,7 +120,7 @@ class FilterForm extends React.Component {
           />
         </div>
         <div className="column">
-          <Button type="primary" block>
+          <Button level="primary" block type="submit">
             submit
           </Button>
         </div>
@@ -127,10 +130,10 @@ class FilterForm extends React.Component {
     return (
       <>
         <Button
-          type="secondary"
+          level="secondary"
           href="#"
           ghost
-          onClick={()=>this.openPopup()}
+          onClick={(e)=>this.openPopup(e)}
         >
           Show Modal
         </Button>
@@ -148,7 +151,7 @@ export const modal = () => (
   <>
     <div className="column">
       <h1>Popup/Modal Windows</h1>
-      <FilterForm />
+      <FilterFormPopup />
     </div>
   </>
 )
