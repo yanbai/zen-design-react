@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './assets/style/_base.scss'
-import Button from './components/Button'
-import Collapse from './components/Collapse'
+import Button from './dist/js/ZenButton'
+import './dist/static/css/ZenButton.css'
+import Collapse from './dist/js/ZenCollapse'
+import './dist/static/css/ZenCollapse.css'
 
 // function App() {
 //   return (
@@ -26,6 +27,8 @@ import Collapse from './components/Collapse'
 //   );
 // }
 function App() {
+  console.log(1111111111111111)
+  console.log(Button)
   const collapseContent = (
     <div>
       <ul>
@@ -42,7 +45,7 @@ function App() {
       <div><Button ghost>Hello World</Button></div>
       <div><Button disabled>Hello World</Button></div>
       <div><Button block>Hello World</Button></div>
-      <div><Button icon="shopping-cart">Buy Now</Button></div>
+      <div><Button level="primary" icon="shopping-cart">Buy Now</Button></div>
       <div style={{width: 60 + 'vw'}}><Collapse header="product type" content={collapseContent} /></div>
       <div style={{width: 60 + 'vw'}}>
         <Collapse header="product type 2" content={collapseContent} />

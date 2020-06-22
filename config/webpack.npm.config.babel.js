@@ -85,18 +85,24 @@ console.log('---------------config---------------')
 const config = {
   mode: 'development',
   entry: {
-    'base': './src/base.js',
+    'base': './src/components/base.js',
+    'main': './src/components/main.js',
     'ZenButton': './src/components/Button/index.js',
+    'ZenCheckbox': './src/components/Checkbox/index.js',
     'ZenCollapse': './src/components/Collapse/index.js',
     'ZenIcon': './src/components/Icon/index.js',
     'ZenInput': './src/components/Input/index.js',
     'ZenModal': './src/components/Modal/index.js',
+    'ZenRadio': './src/components/Radio/index.js',
     'ZenSelect': './src/components/Select/index.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
-    libraryTarget: 'umd'
+    libraryTarget: 'commonjs2'
+    // globalObject: 'this',
+    // umdNamedDefine: true,
+    // library: 'Zen'
   },
   resolve: {
     alias: {
@@ -284,6 +290,7 @@ const config = {
             exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
+              publicPath: '../../'
             },
           },
           // ** STOP ** Are you adding a new loader?
