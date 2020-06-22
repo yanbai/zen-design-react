@@ -2,6 +2,7 @@ import React from 'react'
 import { addDecorator } from '@storybook/react';
 import Center from './center';
 import { addParameters } from '@storybook/react'
+import '../src/assets/style/_base.scss'
 
 addDecorator(storyFn => <Center>{storyFn()}</Center>);
 addParameters({

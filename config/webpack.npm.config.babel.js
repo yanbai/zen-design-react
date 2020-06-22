@@ -85,8 +85,7 @@ console.log('---------------config---------------')
 const config = {
   mode: 'development',
   entry: {
-    'base': './src/components/base.js',
-    'main': './src/components/main.js',
+    'common': './src/components/common.js',
     'ZenButton': './src/components/Button/index.js',
     'ZenCheckbox': './src/components/Checkbox/index.js',
     'ZenCollapse': './src/components/Collapse/index.js',
@@ -99,7 +98,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
     // globalObject: 'this',
     // umdNamedDefine: true,
     // library: 'Zen'

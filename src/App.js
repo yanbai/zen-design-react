@@ -1,34 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+// zen design related
+import './dist/static/css/common.css';
 import Button from './dist/js/ZenButton'
 import './dist/static/css/ZenButton.css'
 import Collapse from './dist/js/ZenCollapse'
 import './dist/static/css/ZenCollapse.css'
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 function App() {
-  console.log(1111111111111111)
-  console.log(Button)
   const collapseContent = (
     <div>
       <ul>
