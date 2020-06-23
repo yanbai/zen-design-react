@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import style from './index.module.scss'
 import PropTypes from 'prop-types'
 import onClickOutside from 'react-onclickoutside'
 import Icon from '../Icon'
@@ -49,25 +49,25 @@ class ZenSelect extends React.Component {
     } = this.props
 
     const selectClass = classNames({
-      'zen-select__container': true,
-      'zen-select__container--expanded': this.state.isExpanded,
-      'zen-select__container--disabled': disabled
+      [`${style.container}`]: true,
+      [`${style.expanded}`]: this.state.isExpanded,
+      [`${style.disabled}`]: disabled
     })
 
     return (
       <div className={selectClass}>
         <input type="hidden" name={name} value={value} />
-        <div className="zen-select__title-outer" onClick={() => this.handleToggle()}>
-          <div className="zen-select__title-inner">
+        <div className={style['title-outer']} onClick={() => this.handleToggle()}>
+          <div className={style['title-inner']}>
             <span>{this.showDisplayName(value)}</span>
-            <Icon name='chevron-down' className="zen-select__arrow" />
+            <Icon name='chevron-down' className={style['arrow']} />
           </div>
         </div>
-        <div className="zen-select__dropdown-container">
-          <ul className="zen-select__dropdown-list">
+        <div className={style['dropdown-container']}>
+          <ul className="dropdown-list">
             {options.map(item => (
               <li
-                className={'zen-select__dropdown-item ' + (item.value === value ? 'zen-select__dropdown-item--selected' : '')}
+                className={style['dropdown-item'] + ' ' + (item.value === value ? style['selected'] : '')}
                 key={item.value}
                 id={item.value}
                 onClick={() => this.handleSelected(item.value, item.label)}

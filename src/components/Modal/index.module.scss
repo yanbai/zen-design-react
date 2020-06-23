@@ -1,6 +1,6 @@
 @import 'assets/style/preprocess';
 
-.zen-modal__overlay {
+.overlay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -11,13 +11,13 @@
   visibility: hidden;
   opacity: 0;
 
-  &--open {
+  &.open {
     visibility: visible;
     opacity: 1;
   }
 }
 
-.zen-modal__popup {
+.popup {
   margin: 70px auto;
   padding: 20px;
   background: $background-color;
@@ -27,14 +27,14 @@
   transition: all 5s ease-in-out;
 }
 
-.zen-modal__popup .zen-modal__header {
+.popup .header {
   margin-top: 0;
   color: $text-color;
   font-family: Tahoma, Arial, sans-serif;
   line-height: 40px;
   height: 40px;
 }
-.zen-modal__popup .zen-modal__close {
+.popup .close {
   cursor: pointer;
   position: absolute;
   top: 20px;
@@ -48,10 +48,10 @@
   background: none;
   outline: none;
 }
-.zen-modal__popup .zen-modal__close:hover {
+.popup .close:hover {
   color: $brand-color;
 }
-.zen-modal__popup .zen-modal__content {
+.popup .content {
   max-height: 30%;
   overflow: hidden;
 }

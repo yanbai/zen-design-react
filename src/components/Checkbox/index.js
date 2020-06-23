@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import style from './index.module.scss'
 import PropTypes from 'prop-types'
 
 class ZenCheckbox extends React.Component {
@@ -25,7 +25,7 @@ class ZenCheckbox extends React.Component {
 
     return (
       <>
-        <div className="zen-checkbox">
+        <div className={style.checkbox}>
           <input
             {...others}
             type="checkbox"

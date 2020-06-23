@@ -1,11 +1,12 @@
 import React from 'react'
-import './index.scss'
+import style from './index.module.scss'
 import Icon from '../Icon'
 import classNames from 'classnames'
 
 class Button extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {}
   }
 
   render() {
@@ -18,11 +19,11 @@ class Button extends React.Component {
     const Component = this.props.href ? 'a' : 'button'
 
     const buttonClass = classNames({
-      'zen-button': true,
-      [`zen-button--${level}`]: level,
-      'zen-button--disabled': this.props.disabled,
-      'zen-button--ghost': ghost,
-      'zen-button--block': block
+      [`${style.button}`]: true,
+      [`${style[level]}`]: level,
+      [`${style.disabled}`]: this.props.disabled,
+      [`${style.ghost}`]: ghost,
+      [`${style.block}`]: block
     })
 
     const icon = this.props.icon ? <Icon name={this.props.icon} /> : null

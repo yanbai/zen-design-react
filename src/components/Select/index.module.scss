@@ -3,15 +3,14 @@
 $select-height: 40px;
 $dropdown-position-top: 42px;
 
-.zen-select__container .zen-select__dropdown-container {
+.container .dropdown-container {
   display: none;
 }
 
-.zen-select__container {
+.container {
   position: relative;
-
-  &--expanded {
-    .zen-select__dropdown-container {
+  &.expanded {
+    .dropdown-container {
       display: block;
     }
     .zen-select__arrow {
@@ -19,16 +18,16 @@ $dropdown-position-top: 42px;
     }
   }
 
-  &--disabled {
+  &.disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    .zen-select__title-outer {
+    .title-outer {
       cursor: not-allowed;
     }
   }
 }
 
-.zen-select__title-outer {
+.title-outer {
   background-color: $background-color;
   border: 1px solid $border-color;
   border-radius: 0;
@@ -36,7 +35,7 @@ $dropdown-position-top: 42px;
   user-select: none;
   height: $select-height;
   cursor: pointer;
-  .zen-select__title-inner {
+  .title-inner {
     position: relative;
     text-align: left;
     padding: 0 16px;
@@ -46,13 +45,13 @@ $dropdown-position-top: 42px;
     display: flex;
     justify-content: space-between;
   }
-  .zen-select__arrow {
+  .arrow {
     user-select: none;
     line-height: $select-height;
   }
 }
 
-.zen-select__dropdown-container {
+.dropdown-container {
   width: 100%;
   line-height: 1.5;
   z-index: 1050;
@@ -60,7 +59,7 @@ $dropdown-position-top: 42px;
   background-color: $background-color;
   border-radius: 0;
   box-shadow: 0 2px 8px $box-shadow-color;
-  .zen-select__dropdown-item {
+  .dropdown-item {
     position: relative;
     display: block;
     padding: 5px 16px;
@@ -74,7 +73,7 @@ $dropdown-position-top: 42px;
     transition: background .3s ease;
     text-align: left;
     font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-    &--selected, &--selected:hover {
+    &.selected, &.selected:hover {
       color: $text-color;
       font-weight: 600;
       background-color: $selected-background-color;

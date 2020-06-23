@@ -1,5 +1,5 @@
 @import 'assets/style/preprocess';
-.zen-collapse {
+.collapse {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -8,21 +8,21 @@
   list-style: none;
 }
 
-.zen-collapse__header {
+.header {
   position: relative;
   padding: 12px 16px;
   color: $text-color;
   cursor: pointer;
 }
 
-.zen-collapse__header i.zen-collapse__icon {
+.header i.icon {
   vertical-align: middle;
   margin-right: 8px;
   transition: all .5s;
   transform: rotate(-90deg);
 }
 
-.zen-collapse__content-outer {
+.content-outer {
   overflow: hidden;
   color: $text-color;
   background-color: $background-color;
@@ -30,14 +30,14 @@
   transition: all .5s;
 }
 
-.zen-collapse__content-inner {
+.content-inner {
   padding: 12px 16px;
 }
 
-.zen-collapse__item.zen-collapse__item--expanded .zen-collapse__content-outer {
+.item.expanded .content-outer {
   max-height: 100vh;
 }
 
-.zen-collapse__item.zen-collapse__item--expanded .zen-collapse__icon {
+.item.expanded .icon {
   transform: rotate(0);
 }

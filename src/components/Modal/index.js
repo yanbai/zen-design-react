@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import style from './index.module.scss'
 import classnames from 'classnames'
 
 function Modal(props) {
@@ -9,17 +9,17 @@ function Modal(props) {
   } = props
 
   const overlayClass = classnames({
-    'zen-modal__overlay': true,
-    'zen-modal__overlay--open': isOpen
+    [`${style.overlay}`]: true,
+    [`${style.open}`]: isOpen
   })
 
   return (
     <div>
       <div className={overlayClass}>
-        <div className="zen-modal__popup">
-          <div className="zen-modal__header">Please input info to filter results</div>
-          <button className="zen-modal__close" onClick={handleClose}>&times;</button>
-          <div className="zen-modal__content">
+        <div className={style.popup}>
+          <div className={style.header}>Please input info to filter results</div>
+          <button className={style.close} onClick={handleClose}>&times;</button>
+          <div className={style.content}>
             {props.content}
           </div>
         </div>

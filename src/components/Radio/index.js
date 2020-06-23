@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import style from './index.module.scss'
 import classnames from 'classnames'
 
 class ZenRadio extends React.Component {
@@ -25,8 +25,8 @@ class ZenRadio extends React.Component {
     } = this.props
 
     const radioClass = classnames({
-      'zen-radio': true,
-      'zen-radio--disabled': disabled
+      [`${style.radio}`]: true,
+      [`${style.disabled}`]: disabled
     })
     return (
       <span className={radioClass}>
@@ -38,7 +38,7 @@ class ZenRadio extends React.Component {
           onChange={this.handleToggle}
         />
         <label htmlFor={id}>{label}</label>
-        <div className="check"></div>
+        <div className={style.check}></div>
       </span>
     )
   }

@@ -13,3 +13,5 @@ function Icon(props) {
   )
 }
 ```
+
+2. how about use npm package to import fontawsome

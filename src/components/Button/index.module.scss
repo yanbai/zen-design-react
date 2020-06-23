@@ -1,6 +1,6 @@
 @import 'assets/style/preprocess';
 
-.zen-button {
+.button {
   line-height: 1.499;
   position: relative;
   display: inline-block;
@@ -22,7 +22,7 @@
   background-color: $button-backgound-color;
   outline: none;
 
-  &--primary {
+  &.primary {
     height: 40px;
     line-height: 40px;
     background-color: $button-primary-backgound-color;
@@ -31,14 +31,14 @@
     box-shadow: $button-primary-box-shadow-color 0px 1px 3px;
     border: 1px solid $button-primary-backgound-color;
     border-radius: 0;
-    &.zen-button--ghost {
+    &.ghost {
       background-color: $button-primary-ghost-backgound-color;
       color: $button-primary-ghost-text-color;
       border: 1px solid $button-primary-ghost-border-color;
     }
   }
 
-  &--secondary {
+  &.secondary {
     height: 40px;
     line-height: 40px;
     background-color: $button-secondary-backgound-color;
@@ -47,7 +47,7 @@
     box-shadow: $button-secondary-box-shadow-color 0px 1px 3px;
     border: 1px solid $button-secondary-border-color;
     border-radius: 0;
-    &.zen-button--ghost {
+    &.ghost {
       background-color: $button-secondary-ghost-backgound-color;
       color: $button-secondary-ghost-text-color;
       border: 1px solid $button-secondary-ghost-border-color;
@@ -59,7 +59,7 @@
     opacity: 0.6;
   }
 
-  &--block {
+  &.block {
     display: block;
     width: 100%;
   }

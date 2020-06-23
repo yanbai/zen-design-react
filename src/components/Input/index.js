@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.scss'
+import style from './index.module.scss'
 import classnames from 'classnames'
 
 function ZenInput(props) {
@@ -9,8 +9,8 @@ function ZenInput(props) {
   } = props
 
   const inputClass = classnames({
-    'zen-input': true,
-    'zen-input--disabled': disabled
+    [`${style.input}`]: true,
+    [`${style.disabled}`]: disabled
   })
   return (
     <input
