@@ -6,7 +6,7 @@ import Icon from '../Icon'
 import find from 'lodash/find'
 import classNames from 'classnames'
 
-class ZenSelect extends React.Component {
+class Select extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -80,7 +80,7 @@ class ZenSelect extends React.Component {
   }
 }
 
-ZenSelect.propTypes = {
+Select.propTypes = {
   handleChanged: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   name: PropTypes.string,
@@ -94,4 +94,4 @@ ZenSelect.propTypes = {
   })
 }
 
-export default onClickOutside(ZenSelect)
+export default onClickOutside(Select)

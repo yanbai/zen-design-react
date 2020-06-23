@@ -2,7 +2,7 @@ import React from 'react'
 import style from './index.module.scss'
 import PropTypes from 'prop-types'
 
-class ZenCheckbox extends React.Component {
+class Checkbox extends React.Component {
   constructor(props) {
     super(props)
     this.handleToggle = this.handleToggle.bind(this)
@@ -40,9 +40,9 @@ class ZenCheckbox extends React.Component {
   }
 }
 
-ZenCheckbox.propTypes = {
+Checkbox.propTypes = {
   label: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
 }
 
-export default ZenCheckbox
+export default Checkbox

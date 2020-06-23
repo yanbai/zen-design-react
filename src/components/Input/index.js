@@ -2,7 +2,7 @@ import React from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
 
-function ZenInput(props) {
+function Input(props) {
   const {
     disabled,
     ...others
@@ -22,4 +22,4 @@ function ZenInput(props) {
   )
 }
 
-export default ZenInput
+export default Input

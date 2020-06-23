@@ -86,22 +86,19 @@ const config = {
   mode: 'development',
   entry: {
     'common': './src/components/common.js',
-    'ZenButton': './src/components/Button/index.js',
-    'ZenCheckbox': './src/components/Checkbox/index.js',
-    'ZenCollapse': './src/components/Collapse/index.js',
-    'ZenIcon': './src/components/Icon/index.js',
-    'ZenInput': './src/components/Input/index.js',
-    'ZenModal': './src/components/Modal/index.js',
-    'ZenRadio': './src/components/Radio/index.js',
-    'ZenSelect': './src/components/Select/index.js'
+    'button': './src/components/Button/index.js',
+    'checkbox': './src/components/Checkbox/index.js',
+    'collapse': './src/components/Collapse/index.js',
+    'icon': './src/components/Icon/index.js',
+    'input': './src/components/Input/index.js',
+    'modal': './src/components/Modal/index.js',
+    'radio': './src/components/Radio/index.js',
+    'select': './src/components/Select/index.js'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'js/[name].js',
     libraryTarget: 'commonjs2',
-    // globalObject: 'this',
-    // umdNamedDefine: true,
-    // library: 'Zen'
   },
   resolve: {
     alias: {
@@ -307,7 +304,18 @@ const config = {
       filename: 'static/css/[name].css',
       chunkFilename: 'static/css/[name].chunk.css',
     })
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        }
+      }
+    }
+  }
 };
 
 export default config;

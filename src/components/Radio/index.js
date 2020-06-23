@@ -2,7 +2,7 @@ import React from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
 
-class ZenRadio extends React.Component {
+class Radio extends React.Component {
   constructor(props) {
     super(props)
     this.handleToggle = this.handleToggle.bind(this)
@@ -44,4 +44,4 @@ class ZenRadio extends React.Component {
   }
 }
 
-export default ZenRadio
+export default Radio

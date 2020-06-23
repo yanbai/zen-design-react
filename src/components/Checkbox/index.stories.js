@@ -1,6 +1,6 @@
 import React from 'react'
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import ZenCheckbox from './index'
+import Checkbox from './index'
 
 export default {
   title: 'Checkbox',
@@ -8,7 +8,7 @@ export default {
 }
 
 // export const checkbox = () => (
-//   <ZenCheckbox
+//   <Checkbox
 //     label={text("Label", 'Married')}
 //     checked={boolean("Checked", true)}
 //     disabled={boolean("Disabled", false)}
@@ -32,7 +32,7 @@ class CheckboxWithHandleChanged extends React.Component {
 
   render() {
     return (
-      <ZenCheckbox
+      <Checkbox
         label={text("Label", 'Married')}
         disabled={boolean("Disabled", false)}
         id={'marriage'}
@@ -85,7 +85,7 @@ class CheckboxGroup extends React.Component {
       <>
         {options.map(option => (
           <div className="column" key={option.value}>
-            <ZenCheckbox
+            <Checkbox
               label={option.label}
               id={option.value}
               checked={value.includes(option.value)}

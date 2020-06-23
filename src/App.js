@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css';
 // zen design related
 import './dist/static/css/common.css';
-import Button from './dist/js/ZenButton'
-import './dist/static/css/ZenButton.css'
-import Collapse from './dist/js/ZenCollapse'
-import './dist/static/css/ZenCollapse.css'
+import './dist/js/vendor'
+import Button from './dist/js/button'
+import './dist/static/css/button.css'
+import Collapse from './dist/js/collapse'
+import './dist/static/css/collapse.css'
 
 function App() {
   const collapseContent = (
