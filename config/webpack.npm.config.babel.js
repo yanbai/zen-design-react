@@ -85,6 +85,7 @@ console.log('---------------config---------------')
 const config = {
   mode: 'development',
   entry: {
+    'all': './src/components/entry.js',
     'common': './src/components/common.js',
     'button': './src/components/Button/index.js',
     'checkbox': './src/components/Checkbox/index.js',

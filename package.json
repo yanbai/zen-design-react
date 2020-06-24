@@ -1,8 +1,7 @@
 {
-  "name": "zen-design",
+  "name": "zendesign",
   "author": "yanbai",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
@@ -54,6 +53,16 @@
       "@babel/preset-env"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yanbai/zen-design-react.git"
+  },
+  "keywords": ["react"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanbai/zen-design-react/issues"
+  },
+  "homepage": "https://github.com/yanbai/zen-design-react",
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
