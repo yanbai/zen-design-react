@@ -62,7 +62,7 @@
   "bugs": {
     "url": "https://github.com/yanbai/zen-design-react/issues"
   },
-  "homepage": "https://github.com/yanbai/zen-design-react",
+  "homepage": "https://zendesigner.appspot.com/",
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
