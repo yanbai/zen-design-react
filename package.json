@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "dependencies": {
     "@babel/core": "^7.10.2",
+    "@babel/plugin-syntax-flow": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@babel/register": "^7.10.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -57,7 +58,9 @@
     "type": "git",
     "url": "git@github.com:yanbai/zen-design-react.git"
   },
-  "keywords": ["react"],
+  "keywords": [
+    "react"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yanbai/zen-design-react/issues"
@@ -65,12 +68,15 @@
   "homepage": "https://zendesigner.appspot.com/",
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-centered": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addon-notes": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.0.0",
     "@storybook/react": "^5.3.19",
+    "@storybook/theming": "^5.3.19",
     "source-map-explorer": "^2.4.2"
   }
 }

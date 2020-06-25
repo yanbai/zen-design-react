@@ -1,7 +1,7 @@
 import React from 'react'
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs"
 import Collapse from './index'
-
+import md from './index.md'
 export default {
   title: 'Collapse',
   decorators: [withKnobs]
@@ -31,3 +31,10 @@ export const collapse = () => (
     />
   </>
 )
+collapse.story = {
+  parameters: {
+    notes: {
+      md
+    }
+  }
+}

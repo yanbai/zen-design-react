@@ -1,7 +1,10 @@
 # zen-design-react overview
-This project is a react UI component library
+Zen Design is a react UI component library
 Zen Design uses [CSS Modules](https://github.com/css-modules/css-modules) by default to import stylesheets
 
+<a href="https://zendesigner.appspot.com/">doc</a>
+<a href="https://github.com/yanbai/zen-design-react">github</a>
+<a href="https://www.npmjs.com/package/zendesign">npm</a>
 # How To Use?
 ```bash
 yarn add zendesign

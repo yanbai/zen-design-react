@@ -1,7 +1,7 @@
 import React from 'react'
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs"
 import Radio from './index'
-
+import md from './index.md'
 export default {
   title: 'Radio',
   decorators: [withKnobs]
@@ -38,3 +38,10 @@ class RadioWithHandleChanged extends React.Component {
 export const radio = () => (
   <RadioWithHandleChanged/>
 )
+radio.story = {
+  parameters: {
+    notes: {
+      md
+    }
+  }
+}

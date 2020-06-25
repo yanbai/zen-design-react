@@ -1,19 +1,12 @@
 import React from 'react'
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs"
 import Checkbox from './index'
+import md from './index.md'
 
 export default {
   title: 'Checkbox',
   decorators: [withKnobs]
 }
-
-// export const checkbox = () => (
-//   <Checkbox
-//     label={text("Label", 'Married')}
-//     checked={boolean("Checked", true)}
-//     disabled={boolean("Disabled", false)}
-//   />
-// )
 
 class CheckboxWithHandleChanged extends React.Component {
   constructor(props) {
@@ -101,3 +94,10 @@ class CheckboxGroup extends React.Component {
 export const checkboxGroup = () => (
   <CheckboxGroup />
 )
+checkboxGroup.story = {
+  parameters: {
+    notes: {
+      md
+    }
+  }
+}

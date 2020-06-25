@@ -5,7 +5,9 @@ import classnames from 'classnames'
 function Modal(props) {
   const {
     isOpen,
-    handleClose
+    handleClose,
+    content,
+    header
   } = props
 
   const overlayClass = classnames({
@@ -17,10 +19,10 @@ function Modal(props) {
     <div>
       <div className={overlayClass}>
         <div className={style.popup}>
-          <div className={style.header}>Please input info to filter results</div>
+          <div className={style.header}>{header}</div>
           <button className={style.close} onClick={handleClose}>&times;</button>
           <div className={style.content}>
-            {props.content}
+            {content}
           </div>
         </div>
       </div>

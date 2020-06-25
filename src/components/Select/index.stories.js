@@ -1,7 +1,7 @@
 import React from 'react'
-import { withKnobs, boolean } from "@storybook/addon-knobs";
+import { withKnobs, boolean } from "@storybook/addon-knobs"
 import ZenSelect from './index'
-
+import md from './index.md'
 export default {
   title: 'Select',
   decorators: [withKnobs]
@@ -47,3 +47,10 @@ class SelectStory extends React.Component {
 export const Select = () => (
   <SelectStory />
 )
+Select.story = {
+  parameters: {
+    notes: {
+      md
+    }
+  }
+}

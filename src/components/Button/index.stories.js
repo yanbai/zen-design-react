@@ -1,6 +1,7 @@
 import React from 'react'
-import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs"
 import Button from './index'
+import md from './index.md'
 
 export default {
   title: 'Button',
@@ -42,3 +43,10 @@ export const button = () => (
     </div>
   </>
 )
+button.story = {
+  parameters: {
+    notes: {
+      md
+    }
+  }
+}

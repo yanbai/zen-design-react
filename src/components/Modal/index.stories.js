@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs"
 import Modal from './index'
 import Button from '../Button'
 import Collapse from '../Collapse'
@@ -7,7 +7,7 @@ import Input from '../Input'
 import Checkbox from '../Checkbox'
 import Radio from '../Radio'
 import Select from '../Select'
-
+import md from './index.md'
 export default {
   title: 'Modal',
   decorators: [withKnobs]
@@ -219,3 +219,10 @@ export const modal = () => (
     </div>
   </>
 )
+modal.story = {
+  parameters: {
+    notes: {
+      md
+    }
+  }
+}
