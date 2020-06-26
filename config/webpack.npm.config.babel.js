@@ -308,10 +308,10 @@ const config = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
+        commons: {
+          name: 'commons',
+          chunks: 'initial',
+          minChunks: 2
         }
       }
     }

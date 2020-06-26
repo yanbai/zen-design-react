@@ -12,8 +12,8 @@ or
 npm install zendesign --save
 ```
 ```bash
+import 'zendesign'
 import 'zendesign/dist/static/css/common.css';
-import 'zendesign/dist/js/vendor'
 import Button from 'zendesign/dist/js/button.js'
 import 'zendesign/dist/static/css/button.css'
 ```

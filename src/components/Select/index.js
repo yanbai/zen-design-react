@@ -3,7 +3,6 @@ import style from './index.module.scss'
 import PropTypes from 'prop-types'
 import onClickOutside from 'react-onclickoutside'
 import Icon from '../Icon'
-import find from 'lodash/find'
 import classNames from 'classnames'
 
 class Select extends React.Component {
@@ -36,7 +35,7 @@ class Select extends React.Component {
   }
 
   showDisplayName(selectedValue) {
-    let selectedOb = find(this.props.options, item => item.value === selectedValue)
+    let selectedOb = this.props.options.find(item => item.value === selectedValue)
     return selectedOb['label']
   }
 
