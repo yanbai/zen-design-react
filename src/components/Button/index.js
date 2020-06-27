@@ -1,7 +1,9 @@
 import React from 'react'
 import style from './index.module.scss'
+import './theme.scss'
 import Icon from '../Icon'
 import classNames from 'classnames'
+import { ThemeContext } from '../theme-context'
 
 class Button extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class Button extends React.Component {
   }
 
   render() {
+    let theme = this.context
     const {
       level,
       ghost,
@@ -19,6 +22,7 @@ class Button extends React.Component {
     const Component = this.props.href ? 'a' : 'button'
 
     const buttonClass = classNames({
+      [`theme-${[theme]}`]: theme,
       [`${style.button}`]: true,
       [`${style[level]}`]: level,
       [`${style.disabled}`]: this.props.disabled,
@@ -37,5 +41,7 @@ class Button extends React.Component {
     )
   }
 }
+
+Button.contextType = ThemeContext
 
 export default Button

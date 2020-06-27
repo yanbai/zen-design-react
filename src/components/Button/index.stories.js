@@ -2,6 +2,7 @@ import React from 'react'
 import { withKnobs, text, boolean, select } from "@storybook/addon-knobs"
 import Button from './index'
 import md from './index.md'
+import { ThemeContext } from '../theme-context'
 
 export default {
   title: 'Button',
@@ -9,7 +10,7 @@ export default {
 }
 
 export const button = () => (
-  <>
+  <ThemeContext.Provider value="tuen-mun">
     <div className="column">
     <Button level={select("ButtonLevels", ['primary', 'secondary'], "primary")}
             disabled={boolean("Disabled", false)}
@@ -41,7 +42,7 @@ export const button = () => (
       {text("Label", "Hello World")}
     </Button>
     </div>
-  </>
+  </ThemeContext.Provider>
 )
 button.story = {
   parameters: {
