@@ -5,6 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import centered from '@storybook/addon-centered/react';
 import { create } from '@storybook/theming';
+import Center from './center';
 
 const theme = create({
   brandTitle: 'Zen Design'
@@ -35,16 +36,17 @@ addParameters({
 });
 
 // Custom center decorator that supports docs extensions
-addDecorator((...args) => {
-  const params = (new URL(document.location)).searchParams;
-  const isInDockView = params.get('viewMode') === 'docs';
+// addDecorator((...args) => {
+//   const params = (new URL(document.location)).searchParams;
+//   const isInDockView = params.get('viewMode') === 'docs';
 
-  if (isInDockView) {
-    return args[0]();
-  }
+//   if (isInDockView) {
+//     return args[0]();
+//   }
 
-  return centered(...args);
-});
+//   return centered(...args);
+// });
+addDecorator(storyFn => <Center>{storyFn()}</Center>);
 
 // Add all our decorators
 addDecorator(withKnobs);

@@ -1,7 +1,7 @@
 {
   "name": "zendesign",
   "author": "yanbai",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "@babel/core": "^7.10.2",
     "@babel/plugin-syntax-flow": "^7.10.1",
