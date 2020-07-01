@@ -2,14 +2,6 @@
 
 .autocomplete {
 	position: relative;
-	label {
-		display: block;
-
-		margin-bottom: 5px;
-
-		font-size: 14px;
-		font-weight: 100;
-	}
 	&-input {
 		color: $text-color;
     font-weight: 500;
@@ -63,14 +55,18 @@
   .autocomplete-selected {
     position: absolute;
     display: flex;
+    z-index: 2;
     .autocomplete-seleted-item {
       background: $brand-color;
       color: #ffffff;
       padding: 6px 8px;
       margin: 8px;
     }
+    i.far {
+      margin-right: 4px;
+    }
   }
-  &-layover {
+  &-cover {
     position: absolute;
     top: 0;
     left: 0;
