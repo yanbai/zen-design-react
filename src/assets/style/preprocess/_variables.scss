@@ -9,7 +9,9 @@ $red-1: #7f0019;
 $gray-1: #aaaaaa;
 $gray-2: #bbbbbb;
 $gray-3: #cccccc;
-$gray-4: #dddddd; //shadow, cover background color
+$gray-4: #dddddd; //shadow
+$gray-5: #f5f5f5; //cover background color
+
 $dark-blue-1: #1a2a3a;
 $dark-blue-2: #2a3a4a;
 $dark-blue-3: #3a4a5a;
@@ -204,8 +206,8 @@ $border-color: $dark-blue-4;
 $box-shadow-color: $gray-4;
 $background-color: $white;
 $brand-color: $central;
-$selected-background-color: $gray-4;
-$hover-background-color: $gray-4;
+$selected-background-color: $gray-5;
+$hover-background-color: $gray-5;
 
 // button
 $button-backgound-color: $white;
