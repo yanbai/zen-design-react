@@ -69,8 +69,13 @@ class Autocomplete extends React.Component {
     }) : []
   }
 
-  highlightWord() {
-
+  highlightWord(word, string) {
+    let index = word.toLowerCase().indexOf(string.toLowerCase())
+    let part_one = word.slice(0, index)
+    let part_two = word.slice(index, index + string.length)
+    let part_three = word.slice(index + string.length)
+    let _word = `${part_one}<em>${part_two}</em>${part_three}`
+    return (<span dangerouslySetInnerHTML={{ __html: _word }} />)
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -91,6 +96,14 @@ class Autocomplete extends React.Component {
     this.setState({
       activeInput: event.target.value.trim(),
       activeOption: ''
+    })
+  }
+
+  handleRemoveOption(e, arrInputValue, item) {
+    let index = arrInputValue.findIndex(valueItem => valueItem === item)
+    arrInputValue.splice(index, 1)
+    this.setState({
+      arrInputValue: arrInputValue
     })
   }
 
@@ -133,18 +146,17 @@ class Autocomplete extends React.Component {
   }
 
   rerenderInputStyle() {
-    let line = 0
-    let top
+    // let line = 0
+    // let top
     let originContentWidth = document.querySelector('.autocomplete-selected').getBoundingClientRect().width ? document.querySelector('.autocomplete-selected').getBoundingClientRect().width : 0
     // let originContentHeight = document.querySelector('.autocomplete-selected').getBoundingClientRect().width ? document.querySelector('.autocomplete-selected').getBoundingClientRect().width : 0
-
-    let contentWidth = parseInt(this.inputCoverRef.current.style.width, 10)
-    if(originContentWidth > contentWidth) {
-      top = 12 + 36
-    }
+    // let contentWidth = parseInt(this.inputCoverRef.current.style.width, 10)
+    // if(originContentWidth > contentWidth) {
+    //   top = 12 + 36
+    // }
     let left = originContentWidth || 16
     this.inputCoverRef.current.style.paddingLeft = left + 'px'
-    this.inputCoverRef.current.style.paddingTop = top + 'px'
+    // this.inputCoverRef.current.style.paddingTop = top + 'px'
   }
 
   render() {
@@ -174,7 +186,10 @@ class Autocomplete extends React.Component {
       <div className="autocomplete">
         <div className="autocomplete-selected">
         {arrInputValue.map(item => (
-          <div key={item} className="autocomplete-seleted-item"><i className="far fa-times-circle"></i>{item}</div>
+          <div key={item} className="autocomplete-seleted-item">
+            <i onClick={e => this.handleRemoveOption(e, arrInputValue, item)} className="far fa-times-circle"></i>
+            {item}
+          </div>
         ))}
         </div>
         <input
@@ -202,7 +217,7 @@ class Autocomplete extends React.Component {
                   className={(activeOption === item ? "active" : "")}
                   onClick={(e) => this.handleSelectItem(e, item, arrInputValue)}
                 >
-                  {item}
+                  {this.highlightWord(item, activeInput)}
                 </li>
               ))
             }

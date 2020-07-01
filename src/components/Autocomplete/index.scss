@@ -50,6 +50,10 @@
       &.active {
         background-color: $selected-background-color;
       }
+      em {
+        background-color: $brand-color;
+        color: #ffffff;
+      }
 		}
   }
   .autocomplete-selected {
@@ -64,6 +68,11 @@
     }
     i.far {
       margin-right: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    i.far:hover {
+      transform: scale(1.1, 1.1);
     }
   }
   &-cover {
