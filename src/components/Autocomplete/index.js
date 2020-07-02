@@ -42,6 +42,7 @@ class Autocomplete extends React.Component {
     super(props)
     this.inputRef = React.createRef()
     this.inputCoverRef = React.createRef()
+    this.autocompleteSelectedRef = React.createRef()
     this.state = {
       strInputValue: '',
       arrInputValue: [],
@@ -79,17 +80,21 @@ class Autocomplete extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    this.rerenderInputStyle()
+    if(this.state.strInputValue !== prevState.strInputValue) {
+      this.renderInputStyle()
+    }
   }
 
-  handleSelectItem(e, item, arrInputValue) {
-    let newValue = arrInputValue.concat(item)
+  handleAddOption(e, option, arrInputValue) {
+    if(!option) return
+    let newValue = arrInputValue.concat(option)
     this.setState({
       strInputValue: newValue.join('|'),
       arrInputValue: newValue,
       activeInput: '',
       activeOption: ''
     })
+    this.inputCoverRef.current.focus()
   }
 
   handleActiveInputChange(event) {
@@ -99,18 +104,18 @@ class Autocomplete extends React.Component {
     })
   }
 
-  handleRemoveOption(e, arrInputValue, item) {
-    let index = arrInputValue.findIndex(valueItem => valueItem === item)
+  handleRemoveOption(e, arrInputValue, index) {
     arrInputValue.splice(index, 1)
     this.setState({
+      strInputValue: arrInputValue.join('|'),
       arrInputValue: arrInputValue
     })
+    this.inputCoverRef.current.focus()
   }
 
-  handleKeyUp(event, matchedOptions, activeOption, arrInputValue, activeInput) {
+  handleKeyDown(event, matchedOptions, activeOption, arrInputValue, activeInput) {
     let activeIndex = activeOption ? matchedOptions.findIndex(item => item === activeOption) : -1
     let _activeOption
-    console.log(event.key)
     switch(event.key) {
       case 'ArrowDown':
         if(activeIndex === matchedOptions.length-1) activeIndex = -1
@@ -118,45 +123,45 @@ class Autocomplete extends React.Component {
         this.setState({
           activeOption: _activeOption
         })
-        break;
+        break
       case 'ArrowUp':
         if(activeIndex === 0) activeIndex = matchedOptions.length
         _activeOption = matchedOptions[activeIndex - 1]
         this.setState({
           activeOption: _activeOption
         })
-        break;
+        break
       case 'Enter':
-        this.handleSelectItem(event, activeOption, arrInputValue)
-        break;
+        this.handleAddOption(event, activeOption, arrInputValue)
+        break
       case 'Backspace':
         if(activeInput.length > 0) return
-        let newArr = arrInputValue.reverse().slice(1).reverse()
-        // let newArr = arrInputValue.splice(arrInputValue.length-1, 1)
-        console.log(newArr)
+        this.handleRemoveOption(event, arrInputValue, arrInputValue.length-1)
         this.setState({
-          strInputValue: newArr.join('|'),
-          arrInputValue: newArr,
           activeInput: '',
           activeOption: ''
         })
+        break
       default:
-        return
+        break
     }
   }
 
-  rerenderInputStyle() {
-    // let line = 0
-    // let top
-    let originContentWidth = document.querySelector('.autocomplete-selected').getBoundingClientRect().width ? document.querySelector('.autocomplete-selected').getBoundingClientRect().width : 0
-    // let originContentHeight = document.querySelector('.autocomplete-selected').getBoundingClientRect().width ? document.querySelector('.autocomplete-selected').getBoundingClientRect().width : 0
-    // let contentWidth = parseInt(this.inputCoverRef.current.style.width, 10)
-    // if(originContentWidth > contentWidth) {
-    //   top = 12 + 36
-    // }
-    let left = originContentWidth || 16
-    this.inputCoverRef.current.style.paddingLeft = left + 'px'
-    // this.inputCoverRef.current.style.paddingTop = top + 'px'
+  renderInputStyle() {
+    let container = this.autocompleteSelectedRef.current
+    if(!container.querySelector('.autocomplete-seleted-item')) {
+      this.inputCoverRef.current.style.paddingLeft = '16px'
+      this.inputCoverRef.current.style.paddingTop = '14px'
+    } else {
+      let containerLeft = container.getBoundingClientRect().left
+      let containerTop = container.getBoundingClientRect().top
+      let lastItem = container.querySelector('.autocomplete-seleted-item:last-child')
+      let lastItemRight = lastItem.getBoundingClientRect().right
+      let lastItemTop = lastItem.getBoundingClientRect().top
+
+      this.inputCoverRef.current.style.paddingLeft = lastItemRight - containerLeft + 2 + 'px'
+      this.inputCoverRef.current.style.paddingTop = lastItemTop - containerTop + 5 + 'px'
+    }
   }
 
   render() {
@@ -184,10 +189,13 @@ class Autocomplete extends React.Component {
 
     return (
       <div className="autocomplete">
-        <div className="autocomplete-selected">
-        {arrInputValue.map(item => (
+        <div className="autocomplete-selected" ref={this.autocompleteSelectedRef}>
+        {arrInputValue.map((item, index) => (
           <div key={item} className="autocomplete-seleted-item">
-            <i onClick={e => this.handleRemoveOption(e, arrInputValue, item)} className="far fa-times-circle"></i>
+            <i
+              onClick={e => this.handleRemoveOption(e, arrInputValue, index)}
+              className="far fa-times-circle"
+            ></i>
             {item}
           </div>
         ))}
@@ -206,7 +214,7 @@ class Autocomplete extends React.Component {
           placeholder="placeholder"
           value={activeInput}
           onChange={(e) => this.handleActiveInputChange(e)}
-          onKeyUp={(e) => this.handleKeyUp(e, matchedOptions, activeOption, arrInputValue, activeInput)}
+          onKeyDown={(e) => this.handleKeyDown(e, matchedOptions, activeOption, arrInputValue, activeInput)}
         />
         {matchedOptions.length > 0 &&
           <ul className={listClass}>
@@ -215,7 +223,7 @@ class Autocomplete extends React.Component {
                 <li
                   key={item}
                   className={(activeOption === item ? "active" : "")}
-                  onClick={(e) => this.handleSelectItem(e, item, arrInputValue)}
+                  onClick={(e) => this.handleAddOption(e, item, arrInputValue)}
                 >
                   {this.highlightWord(item, activeInput)}
                 </li>
