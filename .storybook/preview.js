@@ -18,15 +18,11 @@ addParameters({
     // showPanel: false,
     panelPosition: 'right',
     storySort: (a, b) => {
-      if (a[0].includes('docs-')) {
-        if (a[0].includes('intro-')) {
-          return -1;
-        }
-
-        return 0;
+      if (b[0].includes('welcome')) {
+        return true;
       }
 
-      return 1;
+      return a > b;
     }
   },
   docs: {

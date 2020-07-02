@@ -86,6 +86,7 @@ const config = {
   mode: 'development',
   entry: {
     'common': './src/components/common.js',
+    'autocomplete': './src/components/Autocomplete/index.js',
     'button': './src/components/Button/index.js',
     'checkbox': './src/components/Checkbox/index.js',
     'collapse': './src/components/Collapse/index.js',

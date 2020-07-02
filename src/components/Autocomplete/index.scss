@@ -3,24 +3,16 @@
 .autocomplete {
 	position: relative;
 	&-input {
-		color: $text-color;
-    font-weight: 500;
-    font-size: 12px;
-    border-radius: 0;
-    line-height: 16px;
-    background-color: $background-color;
-    padding: 12px 16px;
-    width: 100%;
-    box-sizing: border-box;
-		outline: none;
+    display: none;
 	}
 	&-list {
 		position: absolute;
-		z-index: 2;
+    z-index: 2;
+    cursor: pointer;
 
 		overflow: auto;
 
-		min-width: 250px;
+		width: 100%;
 		max-height: 150px;
 		margin: 0;
 		margin-top: 5px;
@@ -52,16 +44,19 @@
       }
 		}
   }
-  .autocomplete-selected {
-    position: absolute;
+  .autocomplete-chunks {
+    position: relative;
     display: flex;
     z-index: 2;
     flex-wrap: wrap;
-    .autocomplete-seleted-item {
+    min-height: 46px;
+    cursor: text;
+    .autocomplete-chunk-item {
       background: $brand-color;
       color: #ffffff;
       padding: 6px 8px;
       margin: 8px;
+      cursor: default;
     }
     i.far {
       margin-right: 4px;
