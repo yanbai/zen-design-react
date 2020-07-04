@@ -22,14 +22,6 @@ class Autocomplete extends React.Component {
     }
   }
 
-  // computedInternalOptions(options) {
-  //   if (typeof options !== "undefined" && options.length > 0) {
-  //     return options;
-  //   } else {
-  //     return standardOptions;
-  //   }
-  // }
-
   computedMatchedOptions(options, currentInput, shouldMatchCase) {
     if(currentInput === '') return []
     return options && options.length > 0 ? options.filter(item => {
@@ -244,7 +236,7 @@ Autocomplete.defaultProps = {
 
 Autocomplete.propTypes = {
   defaultValue: PropTypes.array,
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleValueChanged: PropTypes.func
 }
 export default Autocomplete

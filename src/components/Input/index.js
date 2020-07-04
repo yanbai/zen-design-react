@@ -1,10 +1,14 @@
 import React from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
+import errorHandler from '../../hoc/errorHandler'
 
-function Input(props) {
+const Input = React.forwardRef((props, ref) => {
   const {
     disabled,
+    label,
+    isError,
+    errorMessage,
     ...others
   } = props
 
@@ -12,14 +16,24 @@ function Input(props) {
     [`${style.input}`]: true,
     [`${style.disabled}`]: disabled
   })
-  return (
-    <input
-      type="text"
-      disabled={ disabled }
-      { ...others }
-      className = { inputClass }
-    />
-  )
-}
 
-export default Input
+  const containerClass = classnames({
+    'form-group': true,
+    [`${style.error}`]: isError
+  })
+  return (
+    <div className={containerClass}>
+      <label className={style.label}>{label}</label>
+      <input
+        type="text"
+        className = { inputClass }
+        ref={ref}
+        disabled={ disabled }
+        { ...others }
+      />
+      <div className={style['error-message']}>{errorMessage}</div>
+    </div>
+  )
+})
+
+export default errorHandler(Input)

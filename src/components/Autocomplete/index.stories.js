@@ -42,60 +42,69 @@ const standardOptions = [
   "Neymar",
   "Antoine Griezmann",
   "Luka Modrić",
-  "Virgil van Dijk"
+  "Virgil van Dijk",
+  "Marcelo",
+  "Alisson",
+  "Sergio Ramos",
+  "Matthijs de Ligt",
+  "Eden Hazard",
+  "Frenkie de Jong",
+  "Kylian Mbappé"
 ];
 
-const englandPlayer = [
-	"Alan Shearer",
-	"David Beckham",
-	"Michael Owen",
-	"Frank Lampard",
-	"Steven Gerrard"
-]
+// const englandPlayer = [
+// 	"Alan Shearer",
+// 	"David Beckham",
+// 	"Michael Owen",
+// 	"Frank Lampard",
+// 	"Steven Gerrard"
+// ]
 
-const brazilPlayer = [
-  "Ronaldo",
-  "Rivaldo",
-  "Roberto Carlos",
-  "Ronaldinho",
-  "Neymar",
-]
+// const brazilPlayer = [
+//   "Ronaldo",
+//   "Rivaldo",
+//   "Roberto Carlos",
+//   "Ronaldinho",
+//   "Neymar",
+// ]
 
+// const frenchPlayer = [
+//   "Zinedine Zidane",
+//   "Thierry Henry",
+//   "Franck Ribéry",
+//   "Antoine Griezmann"
+// ]
 
-const frenchPlayer = [
-  "Zinedine Zidane",
-  "Thierry Henry",
-  "Franck Ribéry",
-  "Antoine Griezmann"
-]
+// const spainishPlayer = [
+//   "Raúl",
+//   "Fernando Torres",
+//   "Xavi",
+//   "Andrés Iniesta",
+// ]
 
-const spainishPlayer = [
-  "Raúl",
-  "Fernando Torres",
-  "Xavi",
-  "Andrés Iniesta",
-]
+// const germanyPlayer = [
+//   "Matthias Sammer",
+//   "Oliver Kahn",
+//   "Manuel Neuer",
+// ]
 
-const germanyPlayer = [
-  "Matthias Sammer",
-  "Oliver Kahn",
-  "Manuel Neuer",
-]
+// const italianPlayer = [
+//   "Paolo Maldini",
+//   "Fabio Cannavaro",
+//   "Gianluigi Buffon",
+// ]
 
-const italianPlayer = [
-  "Paolo Maldini",
-  "Fabio Cannavaro",
-  "Gianluigi Buffon",
-]
-
-const potugalPlayer = [
-  "Luís Figo",
-  "Deco",
-  "Cristiano Ronaldo",
-]
+// const potugalPlayer = [
+//   "Luís Figo",
+//   "Deco",
+//   "Cristiano Ronaldo",
+// ]
 
 const defaultValue = [
-  'Neymar'
+  "Luís Figo",
+  "Cristiano Ronaldo",
+  "Fabio Cannavaro",
+  "Steven Gerrard"
 ]
 
 class Demo extends React.Component {
@@ -116,6 +125,22 @@ class Demo extends React.Component {
   render() {
     return (
       <>
+        <h1>Autocomplete</h1>
+        <h3>Demo</h3>
+        <p>
+          Please change props with knobs
+        </p>
+        <div className="column">
+          <Autocomplete
+            shouldMatchCase={boolean("ShouldMatchCase", false)}
+            options={['blue', 'yellow', 'red']}
+            defaultValue={['blue']}
+          />
+        </div>
+        <h3>Small Game</h3>
+        <p className="primary-text column">Below is the 2019 FIFPro World XI list, please use "Autocomplete" to output the list in right order</p>
+        <p className="primary-text column">Alisson, Marcelo, Sergio Ramos, Virgil van Dijk, Matthijs de Ligt, Eden Hazard, Frenkie de Jong, Luka Modrić, Cristiano Ronaldo, Kylian Mbappé, Lionel Messi</p>
+
         <div className="column">
           <Autocomplete
             shouldMatchCase={boolean("ShouldMatchCase", false)}
@@ -124,8 +149,8 @@ class Demo extends React.Component {
             handleValueChanged={(v) => this.dataChanged(v)}
           />
         </div>
-        <h1 className="column">Value output:</h1>
-        <ul className="column">
+        <h6>Value output:</h6>
+        <ul>
           {this.state.data.map(item => (
             <li>{item}</li>
           ))}

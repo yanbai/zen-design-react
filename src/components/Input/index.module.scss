@@ -1,5 +1,10 @@
 @import 'assets/style/preprocess';
 
+.label {
+  display: block;
+  margin-bottom: 4px;
+}
+
 .input {
 	color: $text-color;
   font-weight:500;
@@ -34,4 +39,29 @@
 input:hover, textarea:hover,
 input:focus, textarea:focus {
 	background-color:$background-color;
+}
+
+
+.error-message {
+  color: #cc0033;
+  display: none;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 5px 0 0;
+}
+
+/* Error Styling */
+
+.error label {
+  color: #cc0033;
+}
+
+.error input[type=text] {
+  background-color: $background-color;
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+.error .error-message {
+  display: inline-block;
 }

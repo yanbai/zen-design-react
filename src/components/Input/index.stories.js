@@ -1,5 +1,5 @@
 import React from 'react'
-import { withKnobs, boolean } from "@storybook/addon-knobs"
+import { withKnobs, boolean, text } from "@storybook/addon-knobs"
 import Input from './index'
 import md from './index.md'
 export default {
@@ -7,10 +7,33 @@ export default {
   decorators: [withKnobs]
 }
 
+const errorRules = {
+  'isEmpty': {
+    rule(value) {
+      return value.length > 0
+    },
+    errorMessage: 'This is required',
+    shouldTriggerWhenBlur: true
+  },
+  'isEmail': {
+    rule(value) {
+      return /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(value)
+    },
+    errorMessage: 'Please input correct email address',
+    shouldTriggerWhenBlur: true
+  }
+}
+
 export const input = () => (
   <>
     <div className="column">
-      <Input disabled={boolean('Disabled', false)} />
+      <Input
+        label={text('Label', 'Email')}
+        disabled={boolean('Disabled', false)}
+        errorRules={
+          errorRules
+        }
+      />
     </div>
   </>
 )
