@@ -26,6 +26,9 @@ const errorRules = {
 
 export const input = () => (
   <>
+    <h1>Input</h1>
+    <h3>Demo</h3>
+    <h6>the validation rule can be customized, please check Notes for detail</h6>
     <div className="column">
       <Input
         label={text('Label', 'Email')}

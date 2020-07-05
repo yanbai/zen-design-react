@@ -43,7 +43,7 @@ input:focus, textarea:focus {
 
 
 .error-message {
-  color: #cc0033;
+  color: $error-color;
   display: none;
   font-size: 12px;
   line-height: 15px;
@@ -53,12 +53,12 @@ input:focus, textarea:focus {
 /* Error Styling */
 
 .error label {
-  color: #cc0033;
+  color: $error-color;
 }
 
 .error input[type=text] {
   background-color: $background-color;
-  border: 1px solid #cc0033;
+  border: 1px solid $error-color;
   outline: none;
 }
 

@@ -44,7 +44,8 @@ class Select extends React.Component {
       options,
       value,
       name,
-      disabled
+      disabled,
+      label
     } = this.props
 
     const selectClass = classNames({
@@ -55,6 +56,7 @@ class Select extends React.Component {
 
     return (
       <div className={selectClass}>
+        <label className={style.label}>{label}</label>
         <input type="hidden" name={name} value={value} />
         <div className={style['title-outer']} onClick={() => this.handleToggle()}>
           <div className={style['title-inner']}>

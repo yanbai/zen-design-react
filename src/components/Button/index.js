@@ -17,7 +17,8 @@ class Button extends React.Component {
       level,
       ghost,
       block,
-      ...passThroughProps
+      iconType,
+      ...rest
     } = this.props
     const Component = this.props.href ? 'a' : 'button'
 
@@ -30,11 +31,11 @@ class Button extends React.Component {
       [`${style.block}`]: block
     })
 
-    const icon = this.props.icon ? <Icon name={this.props.icon} /> : null
+    const icon = this.props.icon ? <Icon name={this.props.icon} type={this.props.iconType} /> : null
     return (
       <Component
         className={buttonClass}
-        {...passThroughProps}
+        {...rest}
       >
         {icon} {this.props.children}
       </Component>

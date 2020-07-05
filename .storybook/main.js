@@ -1,3 +1,4 @@
+const path = require('path')
 module.exports = {
   stories: ['../src/**/*.stories.js'],
   addons: [
@@ -11,6 +12,12 @@ module.exports = {
   webpackFinal: (config, { configType }) => {
     console.log(configType)
     console.log('---------above is configType--------------')
+    config.resolve = {
+      alias: {
+        'src': path.resolve(__dirname, '../src'),
+        'assets': path.resolve(__dirname, '../src/assets')
+      }
+    }
     return console.dir(config, { depth: null }) || config
   }
 };

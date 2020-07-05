@@ -6,7 +6,10 @@ $dropdown-position-top: 42px;
 .container .dropdown-container {
   display: none;
 }
-
+.label {
+  display: block;
+  margin-bottom: 4px;
+}
 .container {
   position: relative;
   &.expanded {

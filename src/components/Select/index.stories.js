@@ -34,12 +34,17 @@ class SelectStory extends React.Component {
 
   render() {
     return (
-      <ZenSelect
-        options={this.state.options}
-        value={this.state.selected}
-        disabled={boolean("Disabled", false)}
-        handleChanged={this.changeValue}
-      />
+      <>
+        <h1>Select</h1>
+        <h3>Demo</h3>
+        <ZenSelect
+          options={this.state.options}
+          value={this.state.selected}
+          disabled={boolean("Disabled", false)}
+          handleChanged={this.changeValue}
+          label='Which country do you like to travel?'
+        />
+      </>
     )
   }
 }

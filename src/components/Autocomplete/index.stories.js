@@ -150,11 +150,7 @@ class Demo extends React.Component {
           />
         </div>
         <h6>Value output:</h6>
-        <ul>
-          {this.state.data.map(item => (
-            <li>{item}</li>
-          ))}
-        </ul>
+        {this.state.data.join('|')}
       </>
     )
   }

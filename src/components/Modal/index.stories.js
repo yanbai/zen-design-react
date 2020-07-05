@@ -202,6 +202,7 @@ class FilterFormPopup extends React.Component {
           Show Modal
         </Button>
         <Modal
+          header='products filter'
           isOpen={this.state.isPopupOpen}
           content={modalContent}
           handleClose={()=>this.closePopup()}
@@ -213,8 +214,10 @@ class FilterFormPopup extends React.Component {
 
 export const modal = () => (
   <>
+    <h1>Modal</h1>
+    <h3>Demo</h3>
+    <h6>This is a common use case of modal:</h6>
     <div className="column">
-      <h1>Popup/Modal Windows</h1>
       <FilterFormPopup />
     </div>
   </>

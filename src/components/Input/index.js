@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
-import errorHandler from '../../hoc/errorHandler'
+import errorHandler from 'src/hoc/errorHandler'
 
 const Input = React.forwardRef((props, ref) => {
   const {
@@ -30,6 +30,7 @@ const Input = React.forwardRef((props, ref) => {
         ref={ref}
         disabled={ disabled }
         { ...others }
+        autoComplete="off"
       />
       <div className={style['error-message']}>{errorMessage}</div>
     </div>

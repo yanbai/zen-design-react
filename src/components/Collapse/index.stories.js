@@ -25,6 +25,9 @@ const collapseContent_2 = (
 
 export const collapse = () => (
   <>
+    <h1>Collapse</h1>
+    <h3>Demo</h3>
+    <h6>Collapse is used for hide content whene space is not enough. Please check usage in modal component</h6>
     <Collapse header="color type" content={collapseContent_1}
     />
     <Collapse header="product type" content={collapseContent_2}
