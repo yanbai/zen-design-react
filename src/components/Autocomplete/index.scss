@@ -39,7 +39,9 @@
         background-color: $selected-background-color;
       }
       em {
-        background-color: $brand-color;
+        @include themify($themes) {
+          background-color: themed('brandColor');
+        }
         color: #ffffff;
       }
 		}
@@ -52,7 +54,9 @@
     min-height: 46px;
     cursor: text;
     .autocomplete-chunk-item {
-      background: $brand-color;
+      @include themify($themes) {
+        background-color: themed('brandColor');
+      }
       color: #ffffff;
       padding: 6px 8px;
       margin: 8px;
@@ -83,7 +87,9 @@
     border: 1px solid $border-color;
     outline: none;
     &:focus {
-			border-color: $brand-color;
+      @include themify($themes) {
+        border-color: themed('brandColor');
+      }
 		}
   }
 }

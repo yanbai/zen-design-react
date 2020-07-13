@@ -32,7 +32,6 @@ class Button extends React.Component {
     const icon = this.props.icon ? <Icon name={this.props.icon} type={this.props.iconType} /> : null
     return (
       <Component
-        id="theme-button"
         className={buttonClass}
         {...rest}
       >

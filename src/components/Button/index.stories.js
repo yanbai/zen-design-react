@@ -36,6 +36,13 @@ class Demo extends React.Component {
       theme: 'central'
     }
   }
+  addEmoji(value) {
+    let originalValue = this.state.textareaValue
+    let newValue = originalValue + '|' + value
+    this.setState({
+      textareaValue: newValue,
+    })
+  }
   render() {
     return (
       <>

@@ -37,7 +37,6 @@
     position: absolute;
     top: 2px; left: 4px;
     font-size: 16px;
-    color: $brand-color;
     transition: all .2s;
     font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
   }
@@ -74,4 +73,9 @@
   // label:hover:before {
   //   border: 2px solid #4778d9!important;
   // }
+  @include themify($themes) {
+    [type="checkbox"]:checked + label:after {
+      color: themed('brandColor');
+    }
+  }
 }

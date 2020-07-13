@@ -1,6 +1,8 @@
 import React from 'react'
 import style from './index.module.scss'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import { ThemeContext } from '../theme-context'
 
 class Checkbox extends React.Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class Checkbox extends React.Component {
   }
 
   render() {
+    let theme = this.context
     const {
       label,
       id,
@@ -22,10 +25,14 @@ class Checkbox extends React.Component {
       handleChanged,
       ...others
     } = this.props
+    const classes = classNames({
+      [`${style['theme-'+theme]}`]: true,
+      [`${style.checkbox}`]: true,
+    })
 
     return (
       <>
-        <div className={style.checkbox}>
+        <div className={classes}>
           <input
             {...others}
             type="checkbox"
@@ -44,5 +51,5 @@ Checkbox.propTypes = {
   label: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
 }
-
+Checkbox.contextType = ThemeContext
 export default Checkbox

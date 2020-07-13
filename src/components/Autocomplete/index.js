@@ -2,6 +2,7 @@ import React from 'react'
 import './index.scss'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
+import { ThemeContext } from '../theme-context'
 
 class Autocomplete extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class Autocomplete extends React.Component {
     let part_one = word.slice(0, index)
     let part_two = word.slice(index, index + string.length)
     let part_three = word.slice(index + string.length)
-    let _word = `${part_one}<em>${part_two}</em>${part_three}`
+    let _word = `${part_one}<em class="theme-${this.context}">${part_two}</em>${part_three}`
     return (<span dangerouslySetInnerHTML={{ __html: _word }} />)
   }
 
@@ -153,6 +154,7 @@ class Autocomplete extends React.Component {
   }
 
   render() {
+    let theme = this.context
     const {
       id,
       options,
@@ -176,14 +178,14 @@ class Autocomplete extends React.Component {
     )
 
     return (
-      <div className="autocomplete">
+      <div className={"autocomplete"}>
         <div
           className="autocomplete-chunks"
           ref={this.autocompleteSelectedRef}
           onClick={e => this.handleClickAutocomplete(e)}
         >
         {arrInputValue.map((item, index) => (
-          <div key={item} className="autocomplete-chunk-item">
+          <div key={item} className={"autocomplete-chunk-item theme-"+theme}>
             <i
               onClick={e => this.handleRemoveOption(e, arrInputValue, index)}
               className="far fa-times-circle"
@@ -239,4 +241,6 @@ Autocomplete.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleValueChanged: PropTypes.func
 }
+
+Autocomplete.contextType = ThemeContext
 export default Autocomplete

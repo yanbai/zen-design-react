@@ -1,6 +1,10 @@
 import React from 'react';
 import { text, boolean, select } from "@storybook/addon-knobs"
+import Autocomplete from '../components/Autocomplete/index'
 import Button from '../components/Button/index'
+import Checkbox from '../components/Checkbox/index'
+import Input from '../components/Input/index'
+
 import { ThemeContext } from '../components/theme-context'
 import 'assets/style/_preprocess.scss'
 export default {
@@ -142,22 +146,41 @@ class Demo extends React.Component {
         }
         <ThemeContext.Provider value={this.state.theme}>
           <div className="column">
-          <Button level={select("ButtonLevels", ['primary', 'secondary'], "primary")}
-                  disabled={boolean("Disabled", false)}
-                  block={boolean("Block", false)}
-                  ghost={boolean("Ghost", false)}
-                  icon={text("Icon", 'shopping-cart')}
-                  href={text("Href", '')}
-          >
-            {text("Label", "Hello World")}
-          </Button>
+            <Button level="primary"
+                    disabled={false}
+                    block={false}
+                    ghost={false}
+                    icon='shopping-cart'
+                    href=''
+            >
+              Hello World
+            </Button>
           </div>
           <div className="column">
-          <Button level="primary"
-                  ghost={true}
-          >
-            {text("Label", "Hello World")}
-          </Button>
+            <Button level="primary"
+                    ghost={true}
+            >
+              {text("Label", "Hello World")}
+            </Button>
+          </div>
+          <div className="column">
+            <Autocomplete
+              shouldMatchCase={false}
+              options={['blue', 'yellow', 'red']}
+              defaultValue={['blue']}
+            />
+          </div>
+          <div className="column">
+            <Checkbox
+              label='checkbox'
+              id='checkbox'
+              checked={true}
+            />
+          </div>
+          <div className="column">
+            <Input
+              label='Email'
+            />
           </div>
         </ThemeContext.Provider>
       </>
