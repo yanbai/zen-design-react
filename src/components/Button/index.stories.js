@@ -16,14 +16,14 @@ const inlineStyle = {
 }
 const inputStyle = {
   'color': '#4a5a6a',
-  'font-weight': 500,
-	'font-size': '12px',
-	'border-radius': 0,
-	'line-height': '16px',
-	'background-color': '#fff',
+  'fontWeight': 500,
+	'fontSize': '12px',
+	'borderRadius': 0,
+	'lineHeight': '16px',
+	'backgroundColor': '#fff',
 	'padding': '12px 16px',
 	'width': '100%',
-	'box-sizing': 'border-box',
+	'boxSizing': 'border-box',
   'border': '1px solid #4a5a6a',
   'height': '40px'
 }
@@ -33,14 +33,8 @@ class Demo extends React.Component {
     super(props)
     this.state = {
       textareaValue: '',
+      theme: 'central'
     }
-  }
-  addEmoji(value) {
-    let originalValue = this.state.textareaValue
-    let newValue = originalValue + '|' + value
-    this.setState({
-      textareaValue: newValue,
-    })
   }
   render() {
     return (
@@ -50,7 +44,7 @@ class Demo extends React.Component {
         <p>
           Please change props with knobs
         </p>
-        <ThemeContext.Provider value="tuen-mun">
+        <ThemeContext.Provider value={this.state.theme}>
           <div className="column">
           <Button level={select("ButtonLevels", ['primary', 'secondary'], "primary")}
                   disabled={boolean("Disabled", false)}

@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './index.module.scss'
-import './theme.scss'
 import Icon from '../Icon'
 import classNames from 'classnames'
 import { ThemeContext } from '../theme-context'
@@ -21,9 +20,8 @@ class Button extends React.Component {
       ...rest
     } = this.props
     const Component = this.props.href ? 'a' : 'button'
-
     const buttonClass = classNames({
-      [`theme-${[theme]}`]: theme,
+      [`${style['theme-'+theme]}`]: true,
       [`${style.button}`]: true,
       [`${style[level]}`]: level,
       [`${style.disabled}`]: this.props.disabled,
@@ -34,6 +32,7 @@ class Button extends React.Component {
     const icon = this.props.icon ? <Icon name={this.props.icon} type={this.props.iconType} /> : null
     return (
       <Component
+        id="theme-button"
         className={buttonClass}
         {...rest}
       >

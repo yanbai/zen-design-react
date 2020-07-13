@@ -18,7 +18,7 @@ addParameters({
     // showPanel: false,
     panelPosition: 'right',
     storySort: (a, b) => {
-      if (b[0].includes('welcome')) {
+      if (b[0].includes('welcome') || b[0].includes('themify')) {
         return true;
       }
 

@@ -1,0 +1,109 @@
+
+$themes: (
+  heng-fa-chuen: (brandColor:  #b51921),
+  tai-koo: (brandColor:  #b2103e),
+  kowloon-bay: (brandColor:  #c41832),
+  tseung-kwan-o: (brandColor:  #ef342a),
+  wui-kai-sha: (brandColor:  #a84d18),
+  po-lam: (brandColor:  #f68f26),
+  sai-wan-ho: (brandColor:  #faca07),
+  disneyland-resort: (brandColor:  #07594a),
+  skek-kip-mei: (brandColor:  #4ba946),
+  racecourse: (brandColor:  #5fc0a7),
+  tai-wai: (brandColor:  #0376c2),
+  central: (brandColor:  #c41832),
+  tsuen-wan: (brandColor:  #c41832),
+  mong-kok: (brandColor:  #be3223),
+  hung-hom: (brandColor:  #f45f7c),
+  kam-sheung-road: (brandColor:  #d16f20),
+  tai-wo: (brandColor:  #ffd00d),
+  chai-wan: (brandColor:  #076750),
+  fanling: (brandColor:  #7abf45),
+  lok-ma-chau: (brandColor:  #75c7b9),
+  choi-hung: (brandColor:  #077cb0),
+  shau-kei-wan: (brandColor:  #29409a),
+  tsuen-wan-west: (brandColor:  #ee1e4f),
+  lai-king: (brandColor:  #d2174a),
+  long-ping: (brandColor:  #f79d8b),
+  austin: (brandColor:  #ce7020),
+  sheung-shui: (brandColor:  #e9a519),
+  yau-tong: (brandColor:  #fddf55),
+  jordan: (brandColor:  #076a66),
+  ngau-tau-kok: (brandColor:  #a7c299),
+  mei-foo: (brandColor:  #098ec4),
+  kennedy-town: (brandColor:  #89d2e3),
+  tung-chung: (brandColor:  #7572a7),
+  sha-tin-wai: (brandColor:  #f7b1bf),
+  north-point: (brandColor:  #f67e2a),
+  lai-chi-kok: (brandColor:  #f57125),
+  fo-tan: (brandColor:  #fbaf37),
+  kwai-hing: (brandColor:  #fde14e),
+  kwai-fong: (brandColor:  #076c53),
+  tai-wo-hau: (brandColor:  #b2d68c),
+  tai-shui-hang: (brandColor:  #8fd1cd),
+  tuen-mun: (brandColor:  #0798c7),
+  sai-ying-pun: (brandColor:  #9597ca),
+  diamond-hill: (brandColor:  #69686d),
+  tin-hau: (brandColor:  #f47a25),
+  city-one: (brandColor:  #fcba5d),
+  sheung-wan: (brandColor:  #f8d29d),
+  shek-mun: (brandColor:  #ffe285),
+  quarry-bay: (brandColor:  #077e7a),
+  h-k-u: (brandColor:  #d0e4a9),
+  siu-hong: (brandColor:  #81cdc1),
+  lam-tin: (brandColor:  #22b6ed),
+  heng-on: (brandColor:  #b4d6f2),
+  sha-tin: (brandColor:  #c077af),
+  airport: (brandColor:  #bbbfc2),
+  che-kung-temple: (brandColor:  #fed7a6),
+  tin-shui-wai: (brandColor:  #fcae62),
+  tsim-sha-tsui: (brandColor:  #ffe901),
+  sham-shui-po: (brandColor:  #078e82),
+  tiu-keng-leng: (brandColor:  #d7df3f),
+  yuen-long: (brandColor:  #89d3de),
+  heng-hau: (brandColor:  #22b6ed),
+  tai-po-market: (brandColor:  #b295c5),
+  kowloon: (brandColor:  #c5c4c9),
+  sunny-bay: (brandColor:  #d1d5d8),
+  asia-world-expo: (brandColor:  #f2f1f6),
+  nam-cheong: (brandColor:  #efe946),
+  wong-tai-shin: (brandColor:  #fff455),
+  east-tsim-sha-tsui: (brandColor:  #ffe901),
+  lok-fu: (brandColor:  #4c7020),
+  tsing-yi: (brandColor:  #c4e0e1),
+  kowloon-tong: (brandColor:  #79bce7),
+  university: (brandColor:  #b7e1fa),
+  ma-on-shan: (brandColor:  #c7a7d2),
+  yau-ma-tei: (brandColor:  #e5e4e9),
+  hong-kong: (brandColor:  #f2f1f6),
+  kwun-tong: (brandColor:  #f2f2f6),
+  fortress-hill: (brandColor:  #1fb27f),
+  cheung-sha-wan: (brandColor:  #b5a87f),
+  mong-kok-east: (brandColor:  #07b195),
+  wan-chai: (brandColor:  #d7df3f),
+  olympic: (brandColor:  #6dade2),
+  admiralty: (brandColor:  #4dc7ec),
+  LOHAS-park: (brandColor:  #a8b7d8),
+  prince-edward: (brandColor:  #b8a1a9),
+  causeway-bay: (brandColor:  #f8c9cb),
+  lo-wu:  (brandColor: #f2f1f6)
+);
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+
+    &.theme-#{$theme} {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+
+  }
+}
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
