@@ -177,11 +177,12 @@ class Demo extends React.Component {
               checked={true}
             />
           </div>
-          <div className="column">
-            <Input
-              label='Email'
-            />
-          </div>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+
         </ThemeContext.Provider>
       </>
     )
