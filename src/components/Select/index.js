@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import onClickOutside from 'react-onclickoutside'
 import Icon from '../Icon'
 import classNames from 'classnames'
+import { ThemeContext } from '../theme-context'
 
 class Select extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class Select extends React.Component {
   }
 
   render() {
+    const theme = this.context
     const {
       options,
       value,
@@ -49,6 +51,7 @@ class Select extends React.Component {
     } = this.props
 
     const selectClass = classNames({
+      [`${style['theme-'+theme]}`]: true,
       [`${style.container}`]: true,
       [`${style.expanded}`]: this.state.isExpanded,
       [`${style.disabled}`]: disabled
@@ -95,4 +98,5 @@ Select.propTypes = {
   })
 }
 
+Select.contextType = ThemeContext
 export default onClickOutside(Select)

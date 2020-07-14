@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
 import errorHandler from 'src/hoc/errorHandler'
+import { ThemeContext } from '../theme-context'
 
 const Input = React.forwardRef((props, ref) => {
+  const theme = useContext(ThemeContext)
   const {
     disabled,
     label,
@@ -18,7 +20,8 @@ const Input = React.forwardRef((props, ref) => {
   })
 
   const containerClass = classnames({
-    'form-group': true,
+    [`${style['form-group']}`]: true,
+    [`${style['theme-'+theme]}`]: true,
     [`${style.error}`]: isError
   })
   return (
@@ -36,4 +39,6 @@ const Input = React.forwardRef((props, ref) => {
     </div>
   )
 })
+
+Input.contextType = ThemeContext
 export default errorHandler(Input)

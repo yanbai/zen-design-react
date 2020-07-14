@@ -12,6 +12,14 @@
   }
 }
 
+.radio{
+  @include themify($themes) {
+    input[type=radio]:checked ~ .check::before{
+      background-color: themed('brandColor');
+    }
+  }
+}
+
 .radio input[type=radio]{
   position: absolute;
   visibility: hidden;
@@ -25,7 +33,7 @@
   padding: 3px 3px 3px 30px;
   margin: 0 auto;
   height: 16px;
-  z-index: 9;
+  z-index: map-get($zIndex, inputLabel);
   cursor: pointer;
   transition: all 0.25s linear;
 }
@@ -39,7 +47,7 @@
   width: 16px;
   top: 0;
   left: 0;
-	z-index: 5;
+	z-index: map-get($zIndex, inputBox);
 	transition: border .25s linear;
 }
 
@@ -59,10 +67,6 @@
 
 .radio input[type=radio]:checked ~ .check {
   border: 1px solid $text-color;
-}
-
-.radio input[type=radio]:checked ~ .check::before{
-  background: $brand-color;
 }
 
 .radio input[type=radio]:checked ~ label{

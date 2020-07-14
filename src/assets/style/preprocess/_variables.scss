@@ -66,3 +66,12 @@ $button-secondary-ghost-text-color: $text-color;
 $button-secondary-ghost-border-color: $border-color;
 $button-secondary-ghost-box-shadow-color: $box-shadow-color;
 
+// z-index
+$zIndex: (
+  overlay: 999,
+  modal: 1000,
+  selectList: 2,
+  inputContent: 1,
+  inputLabel: 1,
+  inputBox: 1
+);

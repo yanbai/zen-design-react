@@ -1,9 +1,9 @@
 import React from 'react';
-import { text, boolean, select } from "@storybook/addon-knobs"
 import Autocomplete from '../components/Autocomplete/index'
 import Button from '../components/Button/index'
 import Checkbox from '../components/Checkbox/index'
-import Input from '../components/Input/index'
+import Modal from '../components/Modal/index'
+import Radio from '../components/Radio/index'
 
 import { ThemeContext } from '../components/theme-context'
 import 'assets/style/_preprocess.scss'
@@ -106,7 +106,8 @@ class Demo extends React.Component {
     super(props)
     this.state = {
       textareaValue: '',
-      theme: 'central'
+      theme: 'central',
+      isPopupOpen:false
     }
   }
   addEmoji(value) {
@@ -119,6 +120,18 @@ class Demo extends React.Component {
   handleTheme(theme) {
     this.setState({
       theme
+    })
+  }
+  openPopup(e) {
+    e.preventDefault()
+    this.setState({
+      isPopupOpen: true
+    })
+  }
+
+  closePopup() {
+    this.setState({
+      isPopupOpen: false
     })
   }
   render() {
@@ -160,7 +173,7 @@ class Demo extends React.Component {
             <Button level="primary"
                     ghost={true}
             >
-              {text("Label", "Hello World")}
+              Hello World
             </Button>
           </div>
           <div className="column">
@@ -174,6 +187,29 @@ class Demo extends React.Component {
             <Checkbox
               label='checkbox'
               id='checkbox'
+              checked={true}
+            />
+          </div>
+          <div className="column">
+            <Button
+              level="primary"
+              href="#"
+              ghost
+              onClick={(e)=>this.openPopup(e)}
+            >
+              Show Modal
+            </Button>
+            <Modal
+              header='modal title'
+              isOpen={this.state.isPopupOpen}
+              content="this is a modal content"
+              handleClose={()=>this.closePopup()}
+            />
+          </div>
+          <div className="column">
+            <Radio
+              label='radio'
+              id='radio'
               checked={true}
             />
           </div>

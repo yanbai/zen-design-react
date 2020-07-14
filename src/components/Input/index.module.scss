@@ -1,5 +1,13 @@
 @import 'assets/style/preprocess';
 
+.form-group {
+  @include themify() {
+    .input:focus {
+      border: 1px solid themed('brandColor');
+    }
+  }
+}
+
 .label {
   display: block;
   margin-bottom: 4px;

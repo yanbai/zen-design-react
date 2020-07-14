@@ -17,7 +17,7 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    let theme = this.context
+    const theme = this.context
     const {
       label,
       id,

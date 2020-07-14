@@ -7,7 +7,7 @@
 	}
 	&-list {
 		position: absolute;
-    z-index: 2;
+    z-index: map-get($zIndex, selectList);
     cursor: pointer;
 
 		overflow: auto;
@@ -49,7 +49,7 @@
   .autocomplete-chunks {
     position: relative;
     display: flex;
-    z-index: 2;
+    z-index: map-get($zIndex, inputContent);
     flex-wrap: wrap;
     min-height: 46px;
     cursor: text;

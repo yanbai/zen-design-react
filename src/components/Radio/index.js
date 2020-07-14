@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
+import { ThemeContext } from '../theme-context'
 
 class Radio extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Radio extends React.Component {
   }
 
   render() {
+    const theme = this.context
     const {
       disabled,
       label,
@@ -26,6 +28,7 @@ class Radio extends React.Component {
 
     const radioClass = classnames({
       [`${style.radio}`]: true,
+      [`${style['theme-'+theme]}`]: true,
       [`${style.disabled}`]: disabled
     })
     return (
@@ -43,5 +46,6 @@ class Radio extends React.Component {
     )
   }
 }
+Radio.contextType = ThemeContext
 
 export default Radio

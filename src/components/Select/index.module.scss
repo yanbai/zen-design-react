@@ -57,7 +57,7 @@ $dropdown-position-top: 42px;
 .dropdown-container {
   width: 100%;
   line-height: 1.5;
-  z-index: 1050;
+  z-index: map-get($zIndex, selectList);
   font-size: 14px;
   background-color: $background-color;
   border-radius: 0;

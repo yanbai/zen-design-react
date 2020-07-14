@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
+import { ThemeContext } from '../theme-context'
 
 function Modal(props) {
+  const theme = useContext(ThemeContext)
   const {
     isOpen,
     handleClose,
@@ -11,6 +13,7 @@ function Modal(props) {
   } = props
 
   const overlayClass = classnames({
+    [`${style['theme-'+theme]}`]: true,
     [`${style.overlay}`]: true,
     [`${style.open}`]: isOpen
   })
@@ -29,5 +32,7 @@ function Modal(props) {
     </div>
   )
 }
+
+Modal.contextType = ThemeContext
 
 export default Modal

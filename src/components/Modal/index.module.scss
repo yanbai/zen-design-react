@@ -1,6 +1,7 @@
 @import 'assets/style/preprocess';
 
 .overlay {
+  z-index: map-get($map: $zIndex, $key: overlay);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -17,7 +18,16 @@
   }
 }
 
+.overlay {
+  @include themify() {
+    .popup .close:hover {
+      color: themed('brandColor')
+    }
+  }
+}
+
 .popup {
+  z-index: map-get($map: $zIndex, $key: modal);
   margin: 70px auto;
   padding: 20px;
   background: $background-color;
@@ -48,9 +58,7 @@
   background: none;
   outline: none;
 }
-.popup .close:hover {
-  color: $brand-color;
-}
+
 .popup .content {
   max-height: 30%;
   overflow: hidden;

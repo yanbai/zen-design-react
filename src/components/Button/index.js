@@ -11,7 +11,7 @@ class Button extends React.Component {
   }
 
   render() {
-    let theme = this.context
+    const theme = this.context
     const {
       level,
       ghost,

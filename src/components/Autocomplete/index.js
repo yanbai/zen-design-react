@@ -16,7 +16,7 @@ class Autocomplete extends React.Component {
     this.listRef = React.createRef()
 
     this.state = {
-      strInputValue: '',
+      strInputValue: defaultValue ? defaultValue.join('|') : '',
       arrInputValue: defaultValue || [],
       currentInput: '',
       activeOptionIndex: -1
@@ -40,7 +40,7 @@ class Autocomplete extends React.Component {
   }
 
   componentDidMount() {
-    this.renderInputStyle()
+    setTimeout(() => this.renderInputStyle(), 500)
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -154,7 +154,7 @@ class Autocomplete extends React.Component {
   }
 
   render() {
-    let theme = this.context
+    const theme = this.context
     const {
       id,
       options,
