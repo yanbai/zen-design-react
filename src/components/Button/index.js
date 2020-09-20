@@ -2,7 +2,7 @@ import React from 'react'
 import style from './index.module.scss'
 import Icon from '../Icon'
 import classNames from 'classnames'
-import { ThemeContext, ThemeConsumer } from '../theme-context'
+import { ThemeContext } from '../theme-context'
 
 class Button extends React.Component {
   constructor(props) {
@@ -31,21 +31,12 @@ class Button extends React.Component {
 
     const icon = this.props.icon ? <Icon name={this.props.icon} type={this.props.iconType} /> : null
     return (
-      <ThemeConsumer>
-        {
-          (themeStyle) => {
-            return (
-              <Component
-                className={buttonClass}
-                {...rest}
-                style={{backgroundColor: themeStyle.defaultBgColor}}
-              >
-                {icon} {this.props.children}
-              </Component>
-            )
-          }
-        }
-      </ThemeConsumer>
+      <Component
+        className={buttonClass}
+        {...rest}
+      >
+        {icon} {this.props.children}
+      </Component>
     )
   }
 }
