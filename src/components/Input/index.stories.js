@@ -2,6 +2,8 @@ import React from 'react'
 import { withKnobs, boolean, text } from "@storybook/addon-knobs"
 import Input from './index'
 import md from './index.md'
+import { ThemeProvider } from '../theme-context'
+
 export default {
   title: 'Input',
   decorators: [withKnobs]
@@ -30,13 +32,15 @@ export const input = () => (
     <h3>Demo</h3>
     <h6>the validation rule can be customized, please check Notes for detail</h6>
     <div className="column">
-      <Input
-        label={text('Label', 'Email')}
-        disabled={boolean('Disabled', false)}
-        errorRules={
-          errorRules
-        }
-      />
+      <ThemeProvider>
+        <Input
+          label={text('Label', 'Email')}
+          disabled={boolean('Disabled', false)}
+          errorRules={
+            errorRules
+          }
+        />
+      </ThemeProvider>
     </div>
   </>
 )

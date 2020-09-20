@@ -2,10 +2,10 @@ import React, {useContext} from 'react'
 import style from './index.module.scss'
 import classnames from 'classnames'
 import errorHandler from 'src/hoc/errorHandler'
-import { ThemeContext } from '../theme-context'
+import { ThemeContext, ThemeConsumer } from '../theme-context'
 
 const Input = React.forwardRef((props, ref) => {
-  const theme = useContext(ThemeContext)
+  // const theme = useContext(ThemeContext)
   const {
     disabled,
     label,
@@ -21,24 +21,36 @@ const Input = React.forwardRef((props, ref) => {
 
   const containerClass = classnames({
     [`${style['form-group']}`]: true,
-    [`${style['theme-'+theme]}`]: true,
+    // [`${style['theme-'+theme]}`]: true,
     [`${style.error}`]: isError
   })
   return (
-    <div className={containerClass}>
-      <label className={style.label}>{label}</label>
-      <input
-        type="text"
-        className = { inputClass }
-        ref={ref}
-        disabled={ disabled }
-        { ...others }
-        autoComplete="off"
-      />
-      <div className={style['error-message']}>{errorMessage}</div>
-    </div>
+    <ThemeConsumer>
+      {
+        themeStyle => {
+          return (
+            <div className={containerClass}>
+              <label className={style.label}>{label}</label>
+              <input
+                type="text"
+                className = { inputClass }
+                ref={ref}
+                disabled={ disabled }
+                { ...others }
+                autoComplete="off"
+                style={{
+                  backgroundColor: themeStyle.defaultBgColor,
+                  color: themeStyle.defaultFontColor
+                }}
+              />
+              <div className={style['error-message']}>{errorMessage}</div>
+            </div>
+          )
+        }
+      }
+    </ThemeConsumer>
   )
 })
 
-Input.contextType = ThemeContext
+// Input.contextType = ThemeContext
 export default errorHandler(Input)
