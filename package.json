@@ -70,6 +70,8 @@
   },
   "homepage": "https://zendesigner.appspot.com/",
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@mdx-js/loader": "^1.6.18",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-centered": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
