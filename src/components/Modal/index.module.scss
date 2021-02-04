@@ -1,4 +1,4 @@
-@import 'assets/style/preprocess';
+@import "../../assets/style/preprocess";
 
 .overlay {
   z-index: map-get($map: $zIndex, $key: overlay);
@@ -21,7 +21,7 @@
 .overlay {
   @include themify() {
     .popup .close:hover {
-      color: themed('brandColor')
+      color: themed("brandColor");
     }
   }
 }
@@ -64,8 +64,8 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 700px){
-  .box{
+@media screen and (max-width: 700px) {
+  .box {
     width: 70%;
   }
 }

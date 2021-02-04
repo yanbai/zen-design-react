@@ -1,4 +1,4 @@
-@import 'assets/style/preprocess';
+@import "../../assets/style/preprocess";
 
 $select-height: 40px;
 $dropdown-position-top: 42px;
@@ -43,7 +43,7 @@ $dropdown-position-top: 42px;
     text-align: left;
     padding: 0 16px;
     line-height: $select-height;
-    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
     color: $text-color;
     display: flex;
     justify-content: space-between;
@@ -73,10 +73,11 @@ $dropdown-position-top: 42px;
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
-    transition: background .3s ease;
+    transition: background 0.3s ease;
     text-align: left;
-    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-    &.selected, &.selected:hover {
+    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    &.selected,
+    &.selected:hover {
       color: $text-color;
       font-weight: 600;
       background-color: $selected-background-color;

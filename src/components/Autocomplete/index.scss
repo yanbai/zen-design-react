@@ -1,50 +1,50 @@
-@import 'assets/style/preprocess';
+@import "../../assets/style/preprocess";
 
 .autocomplete {
-	position: relative;
-	&-input {
+  position: relative;
+  &-input {
     display: none;
-	}
-	&-list {
-		position: absolute;
+  }
+  &-list {
+    position: absolute;
     z-index: map-get($zIndex, selectList);
     cursor: pointer;
 
-		overflow: auto;
+    overflow: auto;
 
-		width: 100%;
-		max-height: 150px;
-		margin: 0;
-		margin-top: 5px;
-		padding: 0;
+    width: 100%;
+    max-height: 150px;
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
 
-		border: 1px solid $border-color;
+    border: 1px solid $border-color;
 
-		list-style: none;
+    list-style: none;
 
-		border-radius: 0;
-		background-color: $background-color;
-		box-shadow: 0 5px 25px $box-shadow-color;
-		li {
-			margin: 0;
-			padding: 8px 15px;
+    border-radius: 0;
+    background-color: $background-color;
+    box-shadow: 0 5px 25px $box-shadow-color;
+    li {
+      margin: 0;
+      padding: 8px 15px;
 
-			&:last-child {
-				border-bottom: 0;
-			}
-			&:hover {
-				background-color: $hover-background-color;
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:hover {
+        background-color: $hover-background-color;
       }
       &.active {
         background-color: $selected-background-color;
       }
       em {
         @include themify($themes) {
-          background-color: themed('brandColor');
+          background-color: themed("brandColor");
         }
         color: #ffffff;
       }
-		}
+    }
   }
   .autocomplete-chunks {
     position: relative;
@@ -55,7 +55,7 @@
     cursor: text;
     .autocomplete-chunk-item {
       @include themify($themes) {
-        background-color: themed('brandColor');
+        background-color: themed("brandColor");
       }
       color: #ffffff;
       padding: 6px 8px;
@@ -88,9 +88,8 @@
     outline: none;
     &:focus {
       @include themify($themes) {
-        border-color: themed('brandColor');
+        border-color: themed("brandColor");
       }
-		}
+    }
   }
 }
-

@@ -1,7 +1,7 @@
 import React from 'react'
 import { withKnobs, text, boolean, select } from "@storybook/addon-knobs"
 import Button from './index'
-import md from './index.mdx'
+import md from './index.md'
 import { ThemeContext } from '../theme-context'
 import 'assets/style/_preprocess.scss'
 

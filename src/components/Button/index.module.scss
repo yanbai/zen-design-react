@@ -1,4 +1,4 @@
-@import 'assets/style/preprocess';
+@import "../../assets/style/preprocess";
 
 .button {
   line-height: 1.499;
@@ -10,22 +10,22 @@
   background-image: none;
   box-shadow: 0 2px 0 $button-box-shadow-color;
   cursor: pointer;
-  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   user-select: none;
   touch-action: manipulation;
   height: 32px;
   padding: 0 15px;
   font-size: 14px;
   border-radius: 0;
-  color: rgba(0,0,0,.65);
+  color: rgba(0, 0, 0, 0.65);
   border: 1px solid $button-border-color;
   background-color: $button-backgound-color;
   outline: none;
 
   &.primary {
     @include themify($themes) {
-      background-color: themed('brandColor');
-      border: 1px solid themed('brandColor');
+      background-color: themed("brandColor");
+      border: 1px solid themed("brandColor");
     }
     height: 40px;
     line-height: 40px;
@@ -40,8 +40,8 @@
       // color: $button-primary-ghost-text-color;
       // border: 1px solid $button-primary-ghost-border-color;
       @include themify($themes) {
-        color: themed('brandColor');
-        border: 1px solid themed('brandColor');
+        color: themed("brandColor");
+        border: 1px solid themed("brandColor");
       }
     }
   }
@@ -62,7 +62,8 @@
     }
   }
 
-  &.disabled, &[disabled] {
+  &.disabled,
+  &[disabled] {
     cursor: not-allowed;
     opacity: 0.6;
   }

@@ -1,6 +1,5 @@
-
-@import 'assets/style/preprocess';
-.radio{
+@import "../../assets/style/preprocess";
+.radio {
   color: $text-color;
   display: inline-block;
   position: relative;
@@ -12,20 +11,20 @@
   }
 }
 
-.radio{
+.radio {
   @include themify($themes) {
-    input[type=radio]:checked ~ .check::before{
-      background-color: themed('brandColor');
+    input[type="radio"]:checked ~ .check::before {
+      background-color: themed("brandColor");
     }
   }
 }
 
-.radio input[type=radio]{
+.radio input[type="radio"] {
   position: absolute;
   visibility: hidden;
 }
 
-.radio label{
+.radio label {
   display: block;
   position: relative;
   font-weight: 300;
@@ -38,7 +37,7 @@
   transition: all 0.25s linear;
 }
 
-.radio .check{
+.radio .check {
   display: block;
   position: absolute;
   border: 1px solid $text-color;
@@ -47,28 +46,28 @@
   width: 16px;
   top: 0;
   left: 0;
-	z-index: map-get($zIndex, inputBox);
-	transition: border .25s linear;
+  z-index: map-get($zIndex, inputBox);
+  transition: border 0.25s linear;
 }
 
 .radio .check::before {
   display: block;
   position: absolute;
-	content: '';
+  content: "";
   border-radius: 100%;
   height: 10px;
   width: 10px;
   top: 3px;
   left: 3px;
   margin: auto;
-	transition: background 0.25s linear;
-	-webkit-transition: background 0.25s linear;
+  transition: background 0.25s linear;
+  -webkit-transition: background 0.25s linear;
 }
 
-.radio input[type=radio]:checked ~ .check {
+.radio input[type="radio"]:checked ~ .check {
   border: 1px solid $text-color;
 }
 
-.radio input[type=radio]:checked ~ label{
+.radio input[type="radio"]:checked ~ label {
   color: $text-color;
 }

@@ -1,4 +1,4 @@
-@import 'assets/style/preprocess';
+@import "../../assets/style/preprocess";
 .checkbox {
   display: inline-block;
   /* Base for label styling */
@@ -22,10 +22,12 @@
   /* checkbox aspect */
   [type="checkbox"]:not(:checked) + label:before,
   [type="checkbox"]:checked + label:before {
-    content: '';
+    content: "";
     position: absolute;
-    left: 0; top: 0;
-    width: 16px; height: 16px;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
     border: 1px solid $border-color;
     background: #fff;
     border-radius: 0;
@@ -33,12 +35,13 @@
   /* checked mark aspect */
   [type="checkbox"]:not(:checked) + label:after,
   [type="checkbox"]:checked + label:after {
-    content: '\2713\0020';
+    content: "\2713\0020";
     position: absolute;
-    top: 2px; left: 4px;
+    top: 2px;
+    left: 4px;
     font-size: 16px;
-    transition: all .2s;
-    font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+    transition: all 0.2s;
+    font-family: "Lucida Sans Unicode", "Arial Unicode MS", Arial;
   }
   /* checked mark aspect changes */
   [type="checkbox"]:not(:checked) + label:after {
@@ -75,7 +78,7 @@
   // }
   @include themify($themes) {
     [type="checkbox"]:checked + label:after {
-      color: themed('brandColor');
+      color: themed("brandColor");
     }
   }
 }
