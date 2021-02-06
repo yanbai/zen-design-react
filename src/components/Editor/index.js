@@ -1,11 +1,11 @@
-import React from 'react'
-import './index.scss'
+import React from "react"
+import "./index.scss"
 
-class Editor extends React.Component{
+class Editor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isBold: false
+      isBold: false,
     }
   }
   render() {
@@ -16,5 +16,6 @@ class Editor extends React.Component{
       </div>
     )
   }
+  componentDidMount() {}
 }
 export default Editor
