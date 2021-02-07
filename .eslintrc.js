@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    // parser: 'babel-eslint'
+    parser: 'babel-eslint'
   },
   env: {
     browser: true,
@@ -19,7 +19,8 @@ module.exports = {
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [
     'standard',
-    'plugin:vue/strongly-recommended'
+    'plugin:vue/strongly-recommended',
+    './node_modules/eslint-config-airbnb/.eslintrc'
   ],
   // required to lint *.vue files
   plugins: [
