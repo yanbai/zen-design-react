@@ -29,7 +29,6 @@ class Editor extends React.Component {
   }
 
   toggleBold() {
-    console.log(this.state)
     this.setState({
       content: `<b>${this.state.content}</b>`,
     })

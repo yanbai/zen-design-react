@@ -1,0 +1,17 @@
+@import "../../assets/style/preprocess";
+
+.editor {
+  background: #dfdfdf;
+  border: 1px solid black;
+  padding: 16px;
+  min-height: 300px;
+  .toolbar {
+    background: gray;
+  }
+  .editor-content {
+    border: 1px solid #000000;
+  }
+  .editor-content b {
+    font-weight: bold;
+  }
+}
