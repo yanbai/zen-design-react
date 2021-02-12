@@ -6,7 +6,6 @@ function normalizeHtml(str) {
 }
 
 function replaceCaret(el) {
-  // debugger
   // Place the caret at the end of the element
   const target = document.createTextNode("")
   el.appendChild(target)
@@ -42,43 +41,16 @@ function replaceCaret(el) {
 // onChange = e=>setState({html: e.target.innerHTML})
 
 class ContentEditor extends React.Component {
-  lastHtml = this.props.html
+  editorRef = React.createRef()
 
-  constructor(props) {
-    super(props)
-    this.editorRef = React.createRef()
-  }
-
-  emitChange(originalEvt) {
-    const el = this.editorRef.current
-    const html = el.innerHTML
-
-    if (this.props.onChange && html !== this.lastHtml) {
-      const e = Object.assign({}, originalEvt, {
-        target: {
-          innerHTML: html,
-        },
-      })
-      this.props.onChange(e)
-    }
-    this.lastHtml = html
-  }
-
-  componentDidUpdate() {
-    const el = this.editorRef.current
-    this.lastHtml = this.props.html
-    // replaceCaret(el)
+  emitChange(e) {
+    this.props.onChange(e)
   }
 
   shouldComponentUpdate(nextProps) {
-    const { props } = this
     const el = this.editorRef.current
-    if (normalizeHtml(nextProps.html) !== normalizeHtml(el.innerHTML)) return true
-    return (
-      props.disabled !== nextProps.disabled ||
-      props.tagName !== nextProps.tagName ||
-      props.className !== nextProps.className
-    )
+    if (normalizeHtml(el.innerHTML) === normalizeHtml(nextProps.html)) return false
+    return true
   }
 
   render() {
@@ -89,7 +61,6 @@ class ContentEditor extends React.Component {
           className="editor-content"
           contentEditable="true"
           onInput={e => this.emitChange(e)}
-          // onInput={onChange}
           dangerouslySetInnerHTML={{
             __html: html,
           }}
