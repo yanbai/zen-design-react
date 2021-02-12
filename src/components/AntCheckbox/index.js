@@ -4,6 +4,7 @@ import "./index.scss"
 // onChange
 // defaultChecked
 // checked
+
 // autoFocus
 // indeterminate
 export default class AntCheckbox extends React.Component {
@@ -17,17 +18,18 @@ export default class AntCheckbox extends React.Component {
     }
   }
 
-  // static getStaticStateFromProps(props, state) {
-  //   if (typeof props.checked === "undefined")
-  //     return {
-  //       ...state,
-  //       isChecked: props.isChecked,
-  //     }
-  //   return null
-  // }
+  static getStaticStateFromProps(props, state) {
+    if (typeof props.checked === "undefined")
+      return {
+        ...state,
+        isChecked: props.isChecked,
+      }
+    return null
+  }
 
   handleChange(e) {
-    this.setState({ isChecked: !this.state.isChecked })
+    if(typeof this.props.checked === 'undefined')
+      this.setState({ isChecked: e.target.checked })
     this.props.onChange(e)
   }
 

@@ -9,6 +9,14 @@ export default {
 }
 
 class Demo extends React.Component {
+  state = {
+    outsideChecked: true,
+    disabled: false,
+  }
+  toggleChecked = (e) => {
+    console.log(`checked = ${e.target.checked}`)
+    this.setState({ outsideChecked: !this.state.outsideChecked })
+  }
   onChange(e) {
     console.log(`checked = ${e.target.checked}`)
   }
@@ -18,8 +26,18 @@ class Demo extends React.Component {
         <AntCheckbox onChange={e => this.onChange(e)}>
           checkbox
         </AntCheckbox>
-        <AntCheckbox defaultChecked={false} disabled>checkbox with defaultChecked and disabled</AntCheckbox>
-        <AntCheckbox defaultChecked disabled>checkbox with defaultChecked and disabled</AntCheckbox>
+        <AntCheckbox defaultChecked={false} disabled>
+          checkbox with defaultChecked and disabled
+        </AntCheckbox>
+        <AntCheckbox defaultChecked disabled>
+          checkbox with defaultChecked and disabled
+        </AntCheckbox>
+        <AntCheckbox
+          onChange={e => this.toggleChecked(e)}
+          isChecked={this.state.outsideChecked}
+        >
+          change state from outside
+        </AntCheckbox>
       </>
     )
   }
