@@ -13,7 +13,15 @@ class Demo extends React.Component {
     console.log(`checked = ${e.target.checked}`)
   }
   render() {
-    return <AntCheckbox onChange={e=>this.onChange(e)}>checkbox</AntCheckbox>
+    return (
+      <>
+        <AntCheckbox onChange={e => this.onChange(e)}>
+          checkbox
+        </AntCheckbox>
+        <AntCheckbox defaultChecked={false} disabled>checkbox with defaultChecked and disabled</AntCheckbox>
+        <AntCheckbox defaultChecked disabled>checkbox with defaultChecked and disabled</AntCheckbox>
+      </>
+    )
   }
 }
 
