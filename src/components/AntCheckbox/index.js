@@ -10,28 +10,24 @@ export default class AntCheckbox extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      checked: false,
+      isChecked: false,
     }
   }
 
-  handleToggle(e) {
-    this.setState({
-      checked: e.target.checked
-    })
+  handleChange(e) {
+    this.setState({ isChecked: !this.state.isChecked })
     this.props.onChange(e)
   }
+
   render() {
-    const { children, ...others } = this.props
     return (
-      <div className="checkbox">
+      <div>
         <input
+          onChange={e=>this.handleChange(e)}
           type="checkbox"
-          onChange={e=>this.handleToggle(e)}
-          checked={this.state.checked}
+          checked={this.state.isChecked}
         />
-        <label>
-          <span>{children}</span>
-        </label>
+        <label>Label</label>
       </div>
     )
   }
