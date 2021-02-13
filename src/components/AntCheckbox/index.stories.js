@@ -34,10 +34,17 @@ class Demo extends React.Component {
         </AntCheckbox>
         <AntCheckbox
           onChange={e => this.toggleChecked(e)}
-          isChecked={this.state.outsideChecked}
+          checked={this.state.outsideChecked}
         >
           change state from outside
         </AntCheckbox>
+
+        group:
+        <AntCheckbox.Group
+          options={['apple', 'pear', 'orange']}
+        >
+          change state from outside
+        </AntCheckbox.Group>
       </>
     )
   }
