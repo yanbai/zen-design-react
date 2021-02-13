@@ -19,8 +19,7 @@ export default class AntCheckbox extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(123)
-    if ('checked' in props)
+    if ("checked" in props)
       return {
         ...state,
         isChecked: props.checked,
@@ -29,10 +28,9 @@ export default class AntCheckbox extends React.Component {
   }
 
   handleChange(e) {
-    if (!('checked' in this.props))
+    if (!("checked" in this.props))
       this.setState({ isChecked: e.target.checked })
-    if('onChange' in this.props)
-      this.props.onChange(e)
+    if ("onChange" in this.props) this.props.onChange(e)
   }
 
   render() {
@@ -40,10 +38,12 @@ export default class AntCheckbox extends React.Component {
     return (
       <div>
         <input
-          onChange={e => this.handleChange(e)}
           type="checkbox"
-          disabled={disabled}
+          value={this.props.children}
           checked={this.state.isChecked}
+          disabled={disabled}
+          onChange={e => this.handleChange(e)}
+          // others={...others}
         />
         <label>{this.props.children}</label>
       </div>

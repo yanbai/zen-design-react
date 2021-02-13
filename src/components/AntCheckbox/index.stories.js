@@ -13,12 +13,17 @@ class Demo extends React.Component {
     outsideChecked: true,
     disabled: false,
   }
-  toggleChecked = (e) => {
+  toggleChecked = e => {
     console.log(`checked = ${e.target.checked}`)
-    this.setState({ outsideChecked: !this.state.outsideChecked })
+    this.setState({
+      outsideChecked: !this.state.outsideChecked,
+    })
   }
   onChange(e) {
     console.log(`checked = ${e.target.checked}`)
+  }
+  groupOnChange(checkedValues) {
+    console.log("checked = ", checkedValues)
   }
   render() {
     return (
@@ -38,10 +43,13 @@ class Demo extends React.Component {
         >
           change state from outside
         </AntCheckbox>
-
         group:
         <AntCheckbox.Group
-          options={['apple', 'pear', 'orange']}
+          options={["apple", "pear", "orange"]}
+          defaultValue={["apple", "pear"]}
+          onChange={checkedValues =>
+            this.groupOnChange(checkedValues)
+          }
         >
           change state from outside
         </AntCheckbox.Group>
