@@ -5,8 +5,6 @@ import "./index.scss"
 // defaultChecked
 // checked
 
-// autoFocus
-// indeterminate
 export default class AntCheckbox extends React.Component {
   constructor(props) {
     super(props)

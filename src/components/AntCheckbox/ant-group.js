@@ -1,6 +1,9 @@
 import React from "react"
-import AntCheckbox from "./checkbox"
+import AntCheckbox from "./ant-checkbox"
+
 import "./index.scss"
+
+export const GroupContext = React.createContext()
 
 export default class AntCheckboxGroup extends React.Component {
   constructor(props) {
@@ -10,16 +13,7 @@ export default class AntCheckboxGroup extends React.Component {
     }
   }
 
-  static getDerivedStateFromProps(props, state) {
-    // if ("value" in props || "defaultValue" in props)
-    //   return {
-    //     ...state,
-    //     value: props.value || props.defaultValue,
-    //   }
-    return null
-  }
-
-  emitChange(option) {
+  toggleOption(option) {
     const { value } = this.state
     const { onChange } = this.props
     const optionIndex = value.indexOf(option.value)
@@ -42,15 +36,16 @@ export default class AntCheckboxGroup extends React.Component {
   }
 
   render() {
-    const {
-      defaultValue,
-      // children,
-      options = [],
-      // className,
-      // style,
-      onChange,
-      ...others
-    } = this.props
+    const { options = [], onChange, ...others } = this.props
+
+    const { value } = this.state
+
+    const context = {
+      toggleOption: option => this.toggleOption(option),
+      value,
+      disabled: others.disabled,
+      name: others.name,
+    }
 
     const getOptions = () =>
       options.map(option => {
@@ -63,15 +58,26 @@ export default class AntCheckboxGroup extends React.Component {
         return option
       })
 
-    return getOptions().map(option => (
-      <AntCheckbox
-        onChange={e => this.emitChange(option)}
-        key={option.value}
-        checked={this.state.value.includes(option.value)}
-        value={option.value}
-      >
-        {option.label}
-      </AntCheckbox>
-    ))
+    return (
+      <GroupContext.Provider value={context}>
+        {getOptions().map(option => (
+          <AntCheckbox
+            key={option.value}
+            disabled={
+              "disabled" in option
+                ? option.disabled
+                : others.disabled
+            }
+            value={option.value}
+            checked={this.state.value.includes(
+              option.value,
+            )}
+            onChange={option.onChange}
+          >
+            {option.label}
+          </AntCheckbox>
+        ))}
+      </GroupContext.Provider>
+    )
   }
 }

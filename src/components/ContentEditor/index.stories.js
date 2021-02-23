@@ -1,10 +1,16 @@
 import React from "react"
-import { withKnobs, text, boolean, select } from "@storybook/addon-knobs"
+import {
+  withKnobs,
+  text,
+  boolean,
+  select,
+} from "@storybook/addon-knobs"
 import ContentEditable from "./index"
 import md from "./index.md"
 import { ThemeContext } from "../theme-context"
 // import '../../assets/style/_preprocess.scss'
 
+// https://codesandbox.io/s/4rlw34mnk7?file=/src/index.js
 export default {
   title: "ContentEditable",
   decorators: [withKnobs],
@@ -14,7 +20,9 @@ class Demo extends React.Component {
   constructor() {
     super()
     this.contentEditable = React.createRef()
-    this.state = { html: "<b>Hello Yanbai <i>World</i></b>" }
+    this.state = {
+      html: "<b>Hello Yanbai <i>World</i></b>",
+    }
   }
 
   handleChange = evt => {

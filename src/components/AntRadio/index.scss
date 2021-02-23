@@ -1,0 +1,73 @@
+@import "../../assets/style/preprocess";
+.radio {
+  color: $text-color;
+  display: inline-block;
+  position: relative;
+  &.disabled {
+    opacity: 0.6;
+    label {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.radio {
+  // @include themify($themes) {
+  input[type="radio"]:checked ~ .check::before {
+    background-color: #b51921;
+  }
+  // }
+}
+
+.radio input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.radio label {
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 3px 3px 3px 30px;
+  margin: 0 auto;
+  height: 16px;
+  z-index: map-get($zIndex, inputLabel);
+  cursor: pointer;
+  transition: all 0.25s linear;
+}
+
+.radio .check {
+  display: block;
+  position: absolute;
+  border: 1px solid $text-color;
+  border-radius: 100%;
+  height: 16px;
+  width: 16px;
+  top: 0;
+  left: 0;
+  z-index: map-get($zIndex, inputBox);
+  transition: border 0.25s linear;
+}
+
+.radio .check::before {
+  display: block;
+  position: absolute;
+  content: "";
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  top: 3px;
+  left: 3px;
+  margin: auto;
+  transition: background 0.25s linear;
+  -webkit-transition: background 0.25s linear;
+}
+
+.radio input[type="radio"]:checked ~ .check {
+  border: 1px solid $text-color;
+}
+
+.radio input[type="radio"]:checked ~ label {
+  color: $text-color;
+}

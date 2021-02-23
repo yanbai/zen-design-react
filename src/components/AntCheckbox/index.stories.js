@@ -43,10 +43,24 @@ class Demo extends React.Component {
         >
           change state from outside
         </AntCheckbox>
-        group:
+        group with simple array:
         <AntCheckbox.Group
           options={["apple", "pear", "orange"]}
           defaultValue={["apple", "pear"]}
+          onChange={checkedValues =>
+            this.groupOnChange(checkedValues)
+          }
+        >
+          change state from outside
+        </AntCheckbox.Group>
+        group with object array
+        <AntCheckbox.Group
+          options={[
+            { label: "Apple", value: "Apple" },
+            { label: "Pear", value: "Pear" },
+            { label: "Orange", value: "Orange" },
+          ]}
+          defaultValue={["Apple", "Pear"]}
           onChange={checkedValues =>
             this.groupOnChange(checkedValues)
           }
