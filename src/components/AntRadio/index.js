@@ -49,13 +49,13 @@ class AntRadio extends React.Component {
 
     return (
       <GroupContext.Consumer>
-        {radioGroup => {
+        {(radioGroup) => {
           // name can use group name
           if (radioGroup && radioGroup.name)
             radioProps.name = radioGroup.name
           // onChange can emit group onChange
           if (radioGroup && radioGroup.onChange) {
-            radioProps.onChange = e => {
+            radioProps.onChange = (e) => {
               onChange(e)
               radioGroup.onChange(e)
             }
