@@ -7,6 +7,7 @@ import { Uncontrol as UncontrolWithRef } from "./uncontrol-with-forwardref"
 import AntipatternOne from "./antipattern-one"
 import AntipatternTwo from "./antipattern-two"
 
+import MonitorProps from "./monitor-props"
 // https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#anti-pattern-unconditionally-copying-props-to-state
 // https://juejin.cn/post/6844903760305602568
 // https://codesandbox.io/s/m3w9zn1z8x?file=/index.js
@@ -18,6 +19,11 @@ export default {
 class Demo extends React.Component {
   state = {
     outerChecked: false,
+    outerStateText: "original",
+    currentAccount: {
+      email: "accountOne@gmail.com",
+      userId: 1,
+    },
   }
   outerRef = React.createRef()
   outerOnChange(e) {
@@ -25,6 +31,12 @@ class Demo extends React.Component {
   }
   outerHandleChange = e => {
     console.log(e.target.checked)
+  }
+  changeAccount = e => {
+    this.setState({
+      outerChecked: !this.state.outerChecked,
+      outerStateText: this.state.outerStateText + "changed",
+    })
   }
   componentDidMount() {
     this.outerRef.current.style.background = "red"
@@ -59,6 +71,18 @@ class Demo extends React.Component {
             onChange={this.outerHandleChange}
           ></AntipatternTwo>
         </div>
+        <div>
+          <MonitorProps
+            userId={this.state.currentAccount.userId}
+            email={this.state.currentAccount.email}
+          ></MonitorProps>
+        </div>
+        <div>
+          <button onClick={this.changeAccount}>
+            change outer state
+          </button>
+        </div>
+        {this.state.outerStateText}
       </>
     )
   }

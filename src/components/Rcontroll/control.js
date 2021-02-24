@@ -6,7 +6,7 @@ export default function Checkbox(props) {
       <label>control: </label>
       <input
         type="checkbox"
-        value={props.checked}
+        checked={props.checked}
         onChange={props.onChange}
       />
     </div>
