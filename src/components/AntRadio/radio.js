@@ -1,7 +1,7 @@
 import React from "react"
 import "./index.scss"
 import classnames from "classnames"
-import { GroupContext } from "./ant-group"
+import { GroupContext } from "./radio-group"
 
 class AntRadio extends React.Component {
   state = {
@@ -51,8 +51,7 @@ class AntRadio extends React.Component {
       <GroupContext.Consumer>
         {(radioGroup) => {
           // name can use group name
-          if (radioGroup && radioGroup.name)
-            radioProps.name = radioGroup.name
+          if (radioGroup && radioGroup.name) radioProps.name = radioGroup.name
           // onChange can emit group onChange
           if (radioGroup && radioGroup.onChange) {
             radioProps.onChange = (e) => {

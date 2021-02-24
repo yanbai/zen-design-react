@@ -1,6 +1,6 @@
 import React from "react"
 import { withKnobs } from "@storybook/addon-knobs"
-import Radio from "./index"
+import Radio from "./radio"
 
 export default {
   title: "ant radio",
